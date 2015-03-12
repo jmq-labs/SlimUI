@@ -1,0 +1,1 @@
+<div class="FRAME" title="Manage current applications"></div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SlimUI app config file -->
+<catalog>
+	<app>
+		<appname>planner</appname>
+		<icon>app-logo4.png</icon>
+		<title>Planner</title>
+		<default>index.php</default>
+		<color>#B31D1D</color>
+		<asp></asp>
+	</app>
+</catalog>

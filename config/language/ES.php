@@ -1,0 +1,35 @@
+<?php
+define('LANG_LOGIN_TITLE',							'Inicio de sesión');
+define('LANG_LOGIN_USER',							'Usuario');
+define('LANG_LOGIN_PASSWORD',						'Contraseña');
+define('LANG_LOGIN_KEEPSESSION',					'Mantener la sesión iniciada');
+define('LANG_LOGIN_BT1',							'Iniciar sesión');
+define('LANG_LOGIN_ACCT1',							'¿Aún no tienes cuenta?');
+define('LANG_LOGIN_ACCT2',							'Solicita una cuenta ó cambie su contraseña.');
+define('LANG_LOGIN_ACCT3',							'Más información');
+define('LANG_LOGIN_ERRCODEAUTH0',					'Usuario o contraseña no validos.');
+define('LANG_LOGIN_ERRCODEAUTH1',					'No se admiten campos vacios.');
+define('LANG_LOGIN_ERRCODECONN0',					'Error de conexión, revise su acceso a internet e intente de nuevo.');
+define('LANG_LOGIN_ERRCODEAUTH2',					'Por el momento el sitio se encuentra en mantenimiento, vuelva a intentar más tarde.');
+define('LANG_LOGIN_MAINTENANCEMSG',					'El sitio se encuentra en mantenimiento, vuelva más tarde.');
+define('LANG_ADMIN_LOGIN_TITLE',					'Panel de administración');
+define('LANG_ADMIN_LOGIN_ACCT1',					'Para más información visite');
+define('LANG_ADMIN_LOGIN_ACCT2',					'http://www.slimui.com');
+define('LANG_ADMIN_USERS_MANAGE',					'Administrar Usuarios');
+define('LANG_ADMIN_USERS_NAME',						'Nombre');
+define('LANG_ADMIN_USERS_LOCAL',					'Usuarios locales');
+define('LANG_ADMIN_USERS_LDAP',						'Usuarios de dominio');
+define('LANG_TOKEN_TITLE',							'Porfavor espere...');
+define('LANG_TOKEN_E0',								'Lo sentimos, hubo un error al autentificar la sesión, por favor intente más tarde.');
+define('LANG_TOKEN_E1',								'Lo sentimos, hubo un error al generar el token de inicio de sesión, elimine la caché del navegador.');
+define('LANG_MAIN_WELCOME',							'Bienvenido');
+define('LANG_MAIN_CLOSESESSION',					'Cerrar Sesion');
+define('LANG_MAIN_CLOSESESSIONMSG',					'Desea salir ahora?');
+define('LANG_MAIN_CLOSESESSIONMSGBTY',				'Aceptar');
+define('LANG_MAIN_CLOSESESSIONMSGBTN',				'Cancelar');
+define('LANG_DB_CONNERR',							'Error de conexion: ');
+define('LANG_BT_APPLY',								'Aplicar');
+define('LANG_BT_SAVE',								'Guardar');
+define('LANG_BT_CREATE',							'Crear');
+define('LANG_BT_PLUS',								'+');
+?>

@@ -1,0 +1,13 @@
+
+#TICKET_INFO { font-size: 90%; }
+.main { width:100%; }
+.SEARCH_TICKET { padding-top:30px; vertical-align:top; width:35%; text-align:center; height:330px; border-radius: 10px; }
+.SEND_TICKET { padding-left:45px; }
+.title { color:#333; font-weight:bold; font-size:100%; }
+.title1 { color:#2C2C2C; }
+.title2 { color:#fff; font-size:110%; }
+.field { width:280px; color:#555;  }
+.desc {	 width:370px; height:130px; color:#808080; resize:none;}
+.verify_txtbox { font-weight:bold; width:120; text-align:center; }
+.Idlabel {  font-weight:bold; color:#652188;}
+.label_gray { color:#3B3B3B; }

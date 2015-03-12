@@ -1,0 +1,31 @@
+body { background-color:#ddd !important; overflow-y:scroll; }
+body,input,textarea { font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif"; font-size:14px; }
+a:link { text-decoration:none; color:white; }
+a:visited { text-decoration:none; color:white; }
+a:active { text-decoration:none; color:white; }
+label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+.BODY_CONTAINER { width:750px; display:inline-table; }
+._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
+.UI_CONTENT_TEXT { padding:0px 10px 0px; text-align:justify; }
+.CODE { padding:10px; background-color: rgba(158, 18, 252, 0.05); color: rgb(0, 87, 79); }
+.E404 { font-weight: normal; font-style: normal; text-decoration: none; font-size: 36pt; color:#bbb; float:left; margin-right:20px; margin-top: 27px; }
+.P_CONTENT { background-color: rgb(233, 233, 233); padding: 16px; color: rgb(65, 65, 65); font-size: 100%; border-bottom-right-radius: 40px; border-top-right-radius: 40px; }
+.DISPLAY-BLOCK { display:inline-block; }
+
+.itemgridbutton { width: 65px; text-align: center; }
+.itemgridbutton input { min-width:75px; }
+.itemgrid {max-width:65px;}
+
+.mGrid {   width:100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #ABABAB; border-collapse:collapse;}  
+.mGrid td {  padding: 7px; border: solid 1px #C1C1C1; color: #717171; word-wrap: break-word; border-style: dashed; font-size:85%; overflow:hidden; }
+.mGrid ._INPUT_BUTTON { margin-left: -5px; margin-right: -5px; margin-bottom: -5px; margin-top: -5px; border-radius:20px; }  
+.mGrid th { padding: 4px 2px;color: #fff; background-color:#333;  font-size: 0.9em; overflow:hidden; border:none;} 
+.mGrid .alt { background: #fcfcfc  repeat-x top; }  
+.mGrid .pgr table { margin: 5px 0; }  
+.mGrid .pgr td { border-width: 0; padding: 0 6px; font-weight: bold; line-height: 12px; border-color:#fff;  }     
+.mGrid .pgr a { color: #EC8303; text-decoration: none; }  
+.mGrid .pgr a:hover { color: #000; text-decoration: none; }
+
+.ui-datepicker { font-size:100% !important; }
+.ui-tabs li { list-style: none; float: left; position: relative; top: 0; margin: 1px .2em 0 0; border-bottom: 0; padding: 0; white-space: nowrap; display: inline-table; }
+.ui-tabs ul { margin: 0; padding: .2em .2em 0; overflow-x: auto; display: flex; width: 100%; overflow-y: hidden; }

@@ -1,0 +1,45 @@
+body { background-color:#ddd !important; overflow-y:scroll; }
+body,input,textarea { font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif"; font-size:14px; }
+a:link { text-decoration:none; color:white; }
+a:visited { text-decoration:none; color:white; }
+a:active { text-decoration:none; color:white; }
+label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+input[type='file'] { width:100%; }
+hr { min-width:165px; }
+
+#_DIVIMG1 { display:none; }
+#_DIVLOGINFRM { float:none !important; width:inherit !important; }
+#_DIVLOGINFRM > div > p > img { width:230px !important; }
+
+.BODY_CONTAINER { width:320px !important; display:inline-table; }
+._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
+._INPUT_BUTTON { display:block !important; }
+._TEXT_AREA, ._TEXT_AREA textarea { width: 100% !important; }
+.UI_CONTENT_TEXT { padding:0px 10px 0px; text-align:justify; }
+.INPUT_LABEL { width:145px; display:table-cell; margin-left:10px; }
+.CODE { padding:10px; background-color: rgba(158, 18, 252, 0.05); color: rgb(0, 87, 79); }
+.E404 { font-weight: normal; font-style: normal; text-decoration: none; font-size: 36pt; color:#bbb; float:left; margin-right:20px; margin-top: 27px; }
+.P_CONTENT { background-color: rgb(233, 233, 233); padding: 16px; color: rgb(65, 65, 65); font-size: 100%; border-bottom-right-radius: 40px; border-top-right-radius: 40px; }
+.MGRID_CONTAINER { overflow-x: scroll; width: 235px; position: relative; }
+
+.mGrid { width:100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #ABABAB; border-collapse:collapse;}  
+.mGrid td { padding: 7px; border: solid 1px #C1C1C1; color: #717171; word-wrap: break-word; border-style: dashed; font-size:85%; white-space:nowrap; overflow:hidden; }
+.mGrid ._INPUT_BUTTON { margin-left: -5px; margin-right: -5px; margin-bottom: -5px; margin-top: -5px; border-radius:20px; }  
+.mGrid th { padding: 4px 2px;color: #fff; background-color:#333;  font-size: 0.9em; overflow:hidden; border:none;} 
+.mGrid .alt { background: #fcfcfc  repeat-x top; }  
+.mGrid .pgr table { margin: 5px 0; }  
+.mGrid .pgr td { border-width: 0; padding: 0 6px; font-weight: bold; line-height: 12px; border-color:#fff;  }     
+.mGrid .pgr a { color: #EC8303; text-decoration: none; }  
+.mGrid .pgr a:hover { color: #000; text-decoration: none; }
+.itemgridbutton { width: 65px; text-align: center; }
+.itemgridbutton input { min-width:75px; }
+.ui-datepicker { font-size:100% !important; }
+.ui-tabs a { width:100%; }
+.ui-tabs ul { display:inline-block; }
+.ui-tabs .ui-tabs-nav { position:inherit; top:inherit; }
+.ui-tabs-vertical {  }
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 97%; border-bottom: 1px !important; border-right-width: 1px !important; margin-right: 1px !important; margin-top:2px; border-bottom:1px solid #d3d3d3 !important; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right;}

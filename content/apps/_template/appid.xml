@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SlimUI app config file -->
+<catalog>
+	<app>
+		<appname>demoapp</appname> 	  <!-- must be simple plain text without spaces or special characters. -->
+		<icon>app-logo3.png</icon> 	  <!-- from img folder. -->
+		<title>Demo App</title>		  <!-- main app title -->
+		<default>index.php</default>  <!-- default document to be loaded, like 'index.php'. -->
+		<color>#006353</color>		  <!-- app color for the main icon button -->
+		<hidden></hidden> 	  		  <!-- set it 'true' if you want your app to be hidden -->
+		<asp></asp> 				  <!-- if you app is [ .asp ; .aspx ], place 'true' value here -->
+		<style></style>				  <!-- app button custom style -->
+		<menu>menu/menu.html</menu>	  <!-- points to a file containing a menu for your app -->
+		<onload_src></onload_src>  	  <!-- some script file you would like to load, 'scripts/fnc.js' -->
+		<safemode></safemode> 		  <!-- force the app to run in safemode -->
+	</app>
+	<display_menu_filters>
+		<MENU_BT1>Informatica</MENU_BT1>
+		<MENU_BT2>Informatica</MENU_BT2>
+	</display_menu_filters>
+</catalog>

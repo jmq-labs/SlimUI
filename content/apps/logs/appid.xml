@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SlimUI app config file -->
+<catalog>
+	<app>
+		<appname>logs</appname>
+		<icon>app-logo6.png</icon>
+		<title>Logs</title>
+		<default>index.php</default>
+		<color></color>
+		<style>float:right</style>	
+		<asp></asp>			
+	</app>
+</catalog>

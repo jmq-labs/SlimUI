@@ -1,0 +1,35 @@
+<?php
+define('LANG_LOGIN_TITLE',							'Start session');
+define('LANG_LOGIN_USER',							'Username');
+define('LANG_LOGIN_PASSWORD',						'Password');
+define('LANG_LOGIN_KEEPSESSION',					'Keep session');
+define('LANG_LOGIN_BT1',							'Login');
+define('LANG_LOGIN_ACCT1',							'¿Don&apos;t have an account?');
+define('LANG_LOGIN_ACCT2',							'Request a new one or change your password.');
+define('LANG_LOGIN_ACCT3',							'More information');
+define('LANG_LOGIN_ERRCODEAUTH0',					'Wrong username or password.');
+define('LANG_LOGIN_ERRCODEAUTH1',					'No empty fields allowed.');
+define('LANG_LOGIN_ERRCODECONN0',					'Connection error, check your internet access and try again.');
+define('LANG_LOGIN_ERRCODEAUTH2',					'For the moments the site is on maintenance, please try again later.');
+define('LANG_LOGIN_MAINTENANCEMSG',					'The site is under maintenance, please come back later.');
+define('LANG_ADMIN_LOGIN_TITLE',					'Administration panel');
+define('LANG_ADMIN_LOGIN_ACCT1',					'For more updates visit');
+define('LANG_ADMIN_LOGIN_ACCT2',					'http://www.slimui.com');
+define('LANG_ADMIN_USERS_MANAGE',					'Manage Users');
+define('LANG_ADMIN_USERS_NAME',						'Name');
+define('LANG_ADMIN_USERS_LOCAL',					'Local users');
+define('LANG_ADMIN_USERS_LDAP',						'Domain users');
+define('LANG_TOKEN_TITLE',							'Please wait...');
+define('LANG_TOKEN_E0',								'Sorry, there was a problem when trying to authenticate your session, please try again later.');
+define('LANG_TOKEN_E1',								'Sorry, there was an error when trying to generate your session token, try clearing your browser&apos;s cache.');
+define('LANG_MAIN_WELCOME',							'Welcome');
+define('LANG_MAIN_CLOSESESSION',					'Logout');
+define('LANG_MAIN_CLOSESESSIONMSG',					'Do you want to exit now?');
+define('LANG_MAIN_CLOSESESSIONMSGBTY',				'Ok');
+define('LANG_MAIN_CLOSESESSIONMSGBTN',				'Cancel');
+define('LANG_DB_CONNERR',							'Connection error: ');
+define('LANG_BT_APPLY',								'Apply');
+define('LANG_BT_SAVE',								'Save');
+define('LANG_BT_CREATE',							'Create');
+define('LANG_BT_PLUS',								'+');
+?>
