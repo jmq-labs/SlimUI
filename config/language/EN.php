@@ -12,6 +12,9 @@ define('LANG_LOGIN_ERRCODEAUTH1',					'No empty fields allowed.');
 define('LANG_LOGIN_ERRCODECONN0',					'Connection error, check your internet access and try again.');
 define('LANG_LOGIN_ERRCODEAUTH2',					'For the moments the site is on maintenance, please try again later.');
 define('LANG_LOGIN_MAINTENANCEMSG',					'The site is under maintenance, please come back later.');
+define('LANG_LOGIN_PLCHOLDER_USERNAME',				'tim.berners');
+define('LANG_LOGIN_PLCHOLDER_PASSWORD',				'&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;');
+define('LANG_LOGIN_BROWSER_COMP',					'For a better experience in our website, we recommend to use Google Chrome.');
 define('LANG_ADMIN_LOGIN_TITLE',					'Administration panel');
 define('LANG_ADMIN_LOGIN_ACCT1',					'For more updates visit');
 define('LANG_ADMIN_LOGIN_ACCT2',					'http://www.slimui.com');
@@ -32,4 +35,5 @@ define('LANG_BT_APPLY',								'Apply');
 define('LANG_BT_SAVE',								'Save');
 define('LANG_BT_CREATE',							'Create');
 define('LANG_BT_PLUS',								'+');
+define('LANG_SAFEMODE_ALERT',						'Oops! Looks like there was an error inside the application. Would you like to try again in safe mode?');
 ?>

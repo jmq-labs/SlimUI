@@ -2,6 +2,80 @@ var msg1 = "Se modificara el estado de la tarea. ¿Esta seguro que desea continu
 var tabSelected = 1;
 var autoSearch = "";
 
+$.fn.SlimTask = function(){	
+	$(this).bind("click", function(e){ 
+		$(".TASKWIDGET").remove();
+			var meta_tag;
+			var task_id = $(e.target).attr("task_id");
+			var meta_id = $(e.target).attr("meta");
+			switch(meta_id){
+				case "taskstart":
+					 meta_tag = "#qedit_content_4";
+					 break;
+			}  		
+			var taskwidget = "<div class='TASKWIDGET FRAME CONTENT'><div id='OPS'></div></div>";  
+	  		$("body").append(taskwidget);
+			$(".TASKWIDGET").css("top", (e.pageY) + "px");
+			$(".TASKWIDGET").css("left", (e.pageX) + "px");
+			$(".TASKWIDGET > #OPS").load("../../content/apps/planner/widgets/quickedit.html " + meta_tag + ", #qedit_footer",function(){ 
+				$(".FRAME").SlimFrame();
+            	$(".TASKWIDGET .CHECKBOX").SlimCheckbox();
+                $(".TASKWIDGET .INPUT_BUTTON").SlimButton();
+            	$(".TASKWIDGET .INPUT_TEXT, :text").SlimTextbox();
+            	$(".TASKWIDGET .COMBO_BOX").SlimComboBox();
+            	$(".TASKWIDGET .TEXT_AREA").SlimTextArea();
+            	$(".TASKWIDGET .DATEPICKER").datepicker().datepicker('option', {
+            		  dateFormat: 'dd-mm-yy'	
+            	});
+				$("#qedit_6").datepicker().datepicker('option', {
+              		  dateFormat: 'dd-mm-yy', 
+              		  onSelect: function(){ DP_endDate($("#qedit_6"),$("#qedit_7")) }
+              	});              	
+              	$("#qedit_7").datepicker("setDate", 'today');
+            	$("#qedit_8").timepicker({
+            		defaultValue: "00:00",
+                    hourMin: 1,
+                    hourMax: 23,
+                    stepMinute: 5,
+                    timeFormat: 'hh:mm tt'
+                });
+            	$("#qedit_9").timepicker({
+            		defaultValue: "00:00",
+                    hourMin: 1,
+                    hourMax: 23,
+                    stepMinute: 5,
+                    timeFormat: 'hh:mm tt'
+                });
+				$("#qedit_cancel").click(function(){ $(".TASKWIDGET").remove();  });
+				
+				DP_endDate($("#qedit_6"),$("#qedit_7"));
+				ReqFields();
+				
+				<!------------ load field's data asdfsaf------------->
+								
+				var data = $(userTasks.getUserTasks(false));
+				var task = getObject(data, "id", task_id);
+				
+				switch(task.allDay){
+					case true:
+					$("#QUICK_TIMECONFIG").hide();
+					break;
+					
+					case false:
+					$("#QUICK_TIMECONFIG").show();
+					break;
+				}
+				$(".TASKWIDGET #qedit_5").prop('checked',task.allDay);				
+				$(".TASKWIDGET #qedit_6").val($.datepicker.formatDate('dd-mm-yy', new Date(task.start)));
+				$(".TASKWIDGET #qedit_7").val($.datepicker.formatDate('dd-mm-yy', new Date(task.end)));
+				$(".TASKWIDGET #qedit_8").val(task.starttime);
+				$(".TASKWIDGET #qedit_9").val(task.endtime);				
+				
+			});		
+		$(userTasks.updateUserTask(this));  
+	});
+}
+
 $(document).ready(function(){    
 	$(userTasks.getUserTasks(true));
 	$("#SEARCH_INPUT").keydown(function(){ clearInterval(autoSearch); autoSearch = setTimeout("showTicketAll(true)",300); });

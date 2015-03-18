@@ -71,7 +71,7 @@ a:active {text-decoration: none}
 
 .TEXT_AREA { }
 ._TEXT_AREA { min-height:28px; border:2px solid; border-color:#CFCFCF; margin-top:5px; margin-bottom:5px; display:inline-block;  *display: inline; text-align:left; vertical-align:top; color:#515151; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
-._TEXT_AREA textarea { resize:none; overflow:auto; border:none; min-height:60px; outline-width:0; color:#515151; max-width:225px; }
+._TEXT_AREA textarea { resize:none; overflow:auto; border:none; min-height:60px; outline-width:0; color:#515151; max-width:221px; }
 ._TEXT_AREA select { resize:none; overflow:auto; border:none; width:100%; min-height:60px; outline-width:0; color:#515151; }
 ._TEXT_AREA:hover { border-color:#585676; }
 

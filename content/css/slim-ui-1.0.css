@@ -14,7 +14,7 @@ a:active {text-decoration: none}
 ._MENU .MENU_LIST { border:2px solid; border-top:none; border-color:#8D8D8D; position:absolute; background-color:white; display:none; margin-top:12px; margin-left:-15px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; z-index:2; }
 ._MENU .MENU_LIST:hover { z-index: 2; }
 ._MENU .MENU_LIST ._INPUT_BUTTON { padding-left:30px; min-width:100px; height:inherit; display:list-item; list-style-type:none; margin:0px; list-style:'none'; background-color:white; color:black; text-align:left; }
-._MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; }
+._MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; border-bottom: 2px solid transparent; }
 ._MENU .MENU_LIST hr { margin:0px; }
 
 ._CONTEXT_MENU { display:inline-block; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
@@ -23,7 +23,7 @@ a:active {text-decoration: none}
 ._CONTEXT_MENU .MENU_LIST { border:2px solid; border-top:none; border-color:#8D8D8D; position:absolute; background-color:white; display:none; margin-top:3px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 ._CONTEXT_MENU .MENU_LIST:hover { z-index: 1; }
 ._CONTEXT_MENU .MENU_LIST ._INPUT_BUTTON { min-width:100px; line-height:25px; display:list-item; list-style-type:none; margin:0px; list-style:'none'; background-color:white; color:black; text-align:left; }
-._CONTEXT_MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; border:none; }
+._CONTEXT_MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; border-bottom: 2px solid transparent; }
 ._CONTEXT_MENU .MENU_LIST .MENU_LIST { left:100%; margin-right:-500px; border:2px solid; border-color:#8D8D8D; position:absolute; background-color:white; display:none; margin-top:-25px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 ._CONTEXT_MENU hr { margin:0px; }
 ._CONTEXT_MENU:hover img { display:inherit; }
@@ -66,9 +66,11 @@ a:active {text-decoration: none}
 ._COMBO_BOX { min-width: 165px; height: 31px; border: 2px solid; border-color: #CFCFCF; margin-top: 5px; margin-bottom: 5px; display: inline-block; margin-left:0px; margin-right: 4px; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
 ._COMBO_BOX:hover { border-color:#585676; }
 
-._CHECKBOX { min-width:20px; padding:3px; display:inline-block; *display: inline; text-align:center; }
-._CHECKBOX label { cursor: pointer; position: relative; top:-2px; }
-._CHECKBOX input { outline-width:0; color:#515151; cursor:pointer; }
+._CHECKBOX { min-width:20px; padding:3px 9px 3px 3px; display:inline-block; *display: inline; text-align:center; }
+._CHECKBOX label { cursor: pointer; float:right; margin-left:5px; }
+._CHECKBOX input[type=checkbox] { background-color:white; background-image:url('../../content/img/checked.png'); background-size:0%; float:left; height:15px; width:15px; border:1px #B3B3B3 solid; -webkit-appearance:none; -webkit-border-radius:0px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; outline-width:0; cursor:pointer; background-repeat: no-repeat; background-position: center; }
+._CHECKBOX input[type=checkbox]:active { background-color:#ccc; }
+._CHECKBOX input[type=checkbox]:checked { background-size:100%; }
 ._CHECKBOX:hover { background-color:#EBEBEB; cursor:pointer; }
 
 ._TEXT_AREA { min-height:28px; border:2px solid; border-color:#CFCFCF; margin-top:5px; margin-bottom:5px; display:inline-block;  *display: inline; text-align:left; vertical-align:top; color:#515151; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
@@ -81,7 +83,7 @@ a:active {text-decoration: none}
 ._INPUT_BUTTON:active { cursor:pointer; }
 
 ._WIDGET_BUTTON { font-size:100%; border:2px solid; border-color:transparent; color:white !important; width:100px; height:100px; color:#FFFFFF; margin:5px; float:none; display:inline-block;  *display: inline; text-align:left; background-repeat: no-repeat; background-position-x: 50%; background-position-y: 40%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; background-position: center 40%, center 10%; }
-._WIDGET_BUTTON:hover { cursor:pointer; box-shadow: 0px 0px 15px #000; border-color:#DFDFDF; }
+._WIDGET_BUTTON:hover { cursor:pointer; border-color:#DFDFDF; }
 ._WIDGET_BUTTON:active { cursor:pointer; }
 ._WIDGET_BUTTON label { position:relative; margin-left:10px; top:53px; font-size:75%; cursor:pointer; }
 

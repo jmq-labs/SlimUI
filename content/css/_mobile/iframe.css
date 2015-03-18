@@ -13,8 +13,6 @@ hr { min-width:165px; }
 
 .BODY_CONTAINER { width:320px !important; display:inline-table; }
 ._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
-._INPUT_BUTTON { display:block !important; }
-._TEXT_AREA, ._TEXT_AREA textarea { width: 100% !important; }
 .UI_CONTENT_TEXT { padding:0px 10px 0px; text-align:justify; }
 .INPUT_LABEL { width:145px; display:table-cell; margin-left:10px; }
 .CODE { padding:10px; background-color: rgba(158, 18, 252, 0.05); color: rgb(0, 87, 79); }

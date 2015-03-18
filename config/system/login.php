@@ -27,12 +27,12 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
 	            	 	
                         <label class="INPUT_LABEL"><?php echo LANG_LOGIN_USER; ?>:</label>
                         <div class="_INPUT_TEXT">
-                        <input id="username" name="username" autocapitalize="off" style="width:170px" />
+                        <input id="username" name="username" autocapitalize="off" placeholder="<?php echo LANG_LOGIN_PLCHOLDER_USERNAME; ?>" style="width:170px" />
 	                    </div><br>
 	                    
                         <label class="INPUT_LABEL"><?php echo LANG_LOGIN_PASSWORD; ?>:</label>
                         <div class="_INPUT_TEXT">
-                        <input type="password" id="password" autocapitalize="off" name="password" style="width:170px" />
+                        <input type="password" id="password" autocapitalize="off" name="password" placeholder="<?php echo LANG_LOGIN_PLCHOLDER_PASSWORD; ?>" style="width:170px" />
                         </div>
 
                         <div style=" margin-top: 10px; ">

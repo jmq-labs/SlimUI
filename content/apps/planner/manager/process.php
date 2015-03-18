@@ -102,7 +102,7 @@ if($get == "TICKETS_ALL"){
    		 }
 		 $a1["value"] = $mailtags;		 		  
 	  }
-	   echo  "<tr><td width='125px'><b>".utf8_decode($a1["meta_name"]).":</b></td><td>".utf8_decode($a1["value"])."</td></tr>";
+	   echo  "<tr><td width='140px'><b>".utf8_decode($a1["meta_name"]).":</b></td><td>".utf8_decode($a1["value"])."</td></tr>";
     }
     echo "</table></p>";    
   }else{          
@@ -127,7 +127,7 @@ if($get == "TICKETS_ALL"){
 			$class = "METAEDITABLE";
 			break;  		 		  
 	  }
-	  echo  "<tr><td width='125px'><b>".utf8_decode($a2["meta_name"]).":</b></td><td ><label class='$class' meta='$meta' task_id='".utf8_decode($a2["ticket_id"])."'>".utf8_decode($a2["value"])."</label></td></tr>";
+	  echo  "<tr><td width='140px'><b>".utf8_decode($a2["meta_name"]).":</b></td><td ><label class='$class' meta='$meta' task_id='".utf8_decode($a2["ticket_id"])."'>".utf8_decode($a2["value"])."</label></td></tr>";
     }	
 	$q3 = "SELECT prioridad FROM tickets WHERE id = ".$array['id'];
     $e3 = odbc_exec($con, $q3);
