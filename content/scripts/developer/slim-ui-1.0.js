@@ -31,9 +31,13 @@ $.fn.SlimMenu = function(o,s){
       });
       if(!o){
        if(!$(this).hasClass("_MENU")){
-    	$(this).children(".INPUT_MENU").each(function(){
-    		$(this).append("<div class='MENU_LIST'></div>");
-    		$(this).children(".MENU_LIST").append($(this).children("span, hr"));
+    	$(this).children(".INPUT_MENU").each(function(){ 
+			var divTitle = "";
+			if($(this).contents("._INPUT_BUTTON").length > 0){
+				var divTitle = "<div class='MENU_LIST_TITLE _VOID'>" + $(this).contents().get(0).nodeValue; + "</div>";
+			}
+			$(this).append("<div class='MENU_LIST'>" + divTitle + "</div>");    		
+			$(this).children(".MENU_LIST").append($(this).children("span, hr"));
     		$(this).click(function(e){
     		$(".MENU_LIST").hide("fade",100); 
     			if(e.target.nodeName!="SPAN"){ 
@@ -276,7 +280,7 @@ $(this).each(function(){
 
 function SlimAlert(m,fn){
     if(!m){ m = "- Message not defined!"; } 
-	var BKS = "<div class='BLOCK_SCREEN'></div><div class='MSG_WINDOW'></div>";
+	var BKS = "<div class='BLOCK_SCREEN'><div class='MSG_WINDOW_CONTAINER'><div class='MSG_WINDOW'></div></div></div>";
 	var BT_OPTION1 = "<br /><input type='button' id='MSG_CONFIRM_BT' class='_INPUT_BUTTON' value='" + LANG_MAIN_CLOSESESSIONMSGBTY + "' />"; 
 	var BT_OPTION2 = "<br /><input type='button' id='MSG_CONFIRM_BT' class='_INPUT_BUTTON' value='" + LANG_MAIN_CLOSESESSIONMSGBTY + "' /><input type='button' id='MSG_CANCEL_BT' class='_INPUT_BUTTON' value='" + LANG_MAIN_CLOSESESSIONMSGBTN + "' />";
 	

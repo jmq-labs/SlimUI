@@ -8,7 +8,7 @@ $(function(){
 	if(THEME=="x-mas"){$.getScript( "content/themes/x-mas/snow.js");}
 	
 	var BrowserLogo = "<p><a href='http://www.google.com/intl/en/chrome/browser/'><img  style='border:none;' src='content/img/chromelogo.png' /></a></p>";
-	if(browserName.indexOf("Chrome") == -1 && browserName.indexOf("Safari") == -1){ 
+	if(browserName.indexOf("Chrome") == -1 && browserName.indexOf("Safari") == -1 && browserName.indexOf("Mobile") == -1){ 
 		SlimAlert(LANG_LOGIN_BROWSER_COMP + BrowserLogo);
 		_safeMode = true; 
 	}

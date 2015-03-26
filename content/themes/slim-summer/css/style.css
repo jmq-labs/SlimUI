@@ -1,14 +1,14 @@
-#RENDERS { position:absolute; top:0px; left:0px; z-index:-1; width:100%; height:100%; background-image:url('../img/palms.png'); opacity:0.05; background-size:150px; }
+#RENDERS { -webkit-filter: invert(100%); position:absolute; top:0px; left:0px; z-index:-1; width:100%; height:100%; background-image:url('../img/palms.png'); opacity:0.15; background-size:150px; }
 #WIDGET_MENU { border-bottom: 1px solid #FF9B00; }
-._BODY { background-color:#FF6100; }
+._BODY { background-color:#FF7400; }
 ._INPUT_BUTTON { background-color: #FF7400; color: #FFFFFF; }
 ._INPUT_BUTTON:hover { background-color:#E89608; }
-._INPUT_BUTTON:active { background-color:#E03300; }
-._BKGSTYLE1 { background-color:#FF6100 !important; color: white !important; }
+._INPUT_BUTTON:active { background-color:#1D1D1D; }
+._BKGSTYLE1 { background-color:#FF7400 !important; color: white !important; }
 ._BKGSTYLE2 { background-color:#FFF; }
 ._WIDGET_BUTTON { background-color:#FF7400; }
 ._WIDGET_BUTTON:active { opacity:0.8; }
-.MSG_WINDOW { background-color:#FF7400; }
+.MSG_WINDOW { background-color:#FF6100; border-color: rgb(255, 145, 0) !important; }
 .USER_PROFILE a { color:rgba(255, 255, 255, 0.5); }
 .MENU_BKG { background-color:#FF7400 !important; }
 .MENU-WIDGET ._INPUT_BUTTON { color:#FF7400; }
@@ -23,7 +23,7 @@
 .USR_OPT_ICON { float: right; margin-left:5px; margin-right:5px; }
 .USR_OPT_ICON:hover { opacity:0.8; }
 .USR_OPT_ICON:active { opacity:0; }
-.WIDGET_CONTAINER { background-color: rgba(255, 250, 163, 0.86) !important; }
+.WIDGET_CONTAINER { background-color: rgba(0, 0, 0, 0.16) !important; }
 .SELECTED { background-color: #E03300 !important; }
 .MISSED { border: 2px #DF7065 solid !important; }
 

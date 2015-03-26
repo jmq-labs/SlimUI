@@ -1,19 +1,20 @@
 <?php
 define('LANG_LOGIN_TITLE',							'Inicio de sesión');
+define('LANG_LOGIN_WELCOME',						'Bienvenido :)');
 define('LANG_LOGIN_USER',							'Usuario');
 define('LANG_LOGIN_PASSWORD',						'Contraseña');
 define('LANG_LOGIN_KEEPSESSION',					'Mantener la sesión iniciada');
 define('LANG_LOGIN_BT1',							'Iniciar sesión');
-define('LANG_LOGIN_ACCT1',							'¿Aún no tienes cuenta?');
-define('LANG_LOGIN_ACCT2',							'Solicita una cuenta ó cambie su contraseña.');
+define('LANG_LOGIN_ACCT1',							'¿Problemas para iniciar sesión?');
+define('LANG_LOGIN_ACCT2',							'Recupere su contraseña.');
 define('LANG_LOGIN_ACCT3',							'Más información');
 define('LANG_LOGIN_ERRCODEAUTH0',					'Usuario o contraseña no validos.');
 define('LANG_LOGIN_ERRCODEAUTH1',					'No se admiten campos vacios.');
 define('LANG_LOGIN_ERRCODECONN0',					'Error de conexión, revise su acceso a internet e intente de nuevo.');
 define('LANG_LOGIN_ERRCODEAUTH2',					'Por el momento el sitio se encuentra en mantenimiento, vuelva a intentar más tarde.');
 define('LANG_LOGIN_MAINTENANCEMSG',					'El sitio se encuentra en mantenimiento, vuelva más tarde.');
-define('LANG_LOGIN_PLCHOLDER_USERNAME',				'tim.berners');
-define('LANG_LOGIN_PLCHOLDER_PASSWORD',				'&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;');
+define('LANG_LOGIN_PLCHOLDER_USERNAME',				'');
+define('LANG_LOGIN_PLCHOLDER_PASSWORD',				'');
 define('LANG_LOGIN_BROWSER_COMP',					'Para una mejor experiencia en su visita al sistema, recomendamos utilizar el navegador Google Chrome.');
 define('LANG_ADMIN_LOGIN_TITLE',					'Panel de administración');
 define('LANG_ADMIN_LOGIN_ACCT1',					'Para más información visite');

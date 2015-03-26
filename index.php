@@ -4,9 +4,11 @@
   	<?php session_start(); if(isset($_GET['kill_session'])){ session_destroy(); } require("config/config.php"); require("config/language/".LANG.".php"); ?>
 	<?php if ((strpos($_SERVER['HTTP_HOST'],'www.')===false)) { header('Location: '.WWWROOT); exit(); } ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
 
     <title><?php print SITE_NAME; ?></title>
-	<link href="content/img/<?php print FAVICON; ?>" rel="shortcut icon">
+	<link href="<?php print IMG_DIR.FAVICON; ?>" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="<?php print IMG_DIR.IOSICON; ?>">
 	<link rel='stylesheet' type='text/css' href='content/themes/<?php print THEME; ?>/css/style.css' />	    
     <?php include('config/header.php'); ?>
  

@@ -19,6 +19,7 @@ hr { min-width:165px; }
 .E404 { font-weight: normal; font-style: normal; text-decoration: none; font-size: 36pt; color:#bbb; float:left; margin-right:20px; margin-top: 27px; }
 .P_CONTENT { background-color: rgb(233, 233, 233); padding: 16px; color: rgb(65, 65, 65); font-size: 100%; border-bottom-right-radius: 40px; border-top-right-radius: 40px; }
 .MGRID_CONTAINER { overflow-x: scroll; width: 235px; position: relative; }
+.WELCOME_LABEL { color: #12A3FF; font-size: 25px; font-weight: bold; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
 
 .mGrid { width:100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #ABABAB; border-collapse:collapse;}  
 .mGrid td { padding: 7px; border: solid 1px #C1C1C1; color: #717171; word-wrap: break-word; border-style: dashed; font-size:85%; white-space:nowrap; overflow:hidden; }

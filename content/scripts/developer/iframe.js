@@ -8,6 +8,9 @@ $(document).ajaxStop(function(e,x,s){
 });
 
 $(function () {	
+	if(parent.DEVICE_TYPE=="MOBILE"){ 
+		$('input').on('change', function(){ $(this).blur(); }); 
+	}
 	if(isAsp){  
 		if( !safeMode){
 			ajaxPostBack();

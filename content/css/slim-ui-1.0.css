@@ -7,15 +7,16 @@ a:visited {text-decoration: none}
 a:active {text-decoration: none}
 
 .ICON_RIGHT {  background-position-x: 100%; background-repeat: no-repeat; background-position-y: 50%; background-position: 100%; }
-.ICON_LEFT {  background-position-x: 5px; background-repeat: no-repeat; background-position-y: 40%; background-position: 5px, center 40%; }
+.ICON_LEFT { background-size:30px; background-repeat: no-repeat; background-position: left, center, center; }
 .SEPARATOR { border-left:1px solid white; display:inline-block; height:20px; position:relative; float:left; margin:0; top:10px; visibility:visible; opacity:.65; }
 
 ._MENU { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
-._MENU .MENU_LIST { border:2px solid; border-top:none; border-color:#8D8D8D; position:absolute; background-color:white; display:none; margin-top:12px; margin-left:-15px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; z-index:2; }
+._MENU .MENU_LIST { border:2px solid; border-color:#444; position:absolute; background-color:white; display:none; margin-top:10px; margin-left:-15px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; z-index:2; }
 ._MENU .MENU_LIST:hover { z-index: 2; }
 ._MENU .MENU_LIST ._INPUT_BUTTON { padding-left:30px; min-width:100px; height:inherit; display:list-item; list-style-type:none; margin:0px; list-style:'none'; background-color:white; color:black; text-align:left; }
 ._MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; border-bottom: 2px solid transparent; }
 ._MENU .MENU_LIST hr { margin:0px; }
+._MENU .MENU_LIST_TITLE { position: absolute; height:18px; background-color: white; color: black; top: -40px; padding: 10px 15px 10px 15px; border: 2px solid #444; left: -2px; border-bottom: none; font-weight: bold; overflow: hidden; max-width: 115px; text-overflow: ellipsis;  white-space: nowrap; }
 
 ._CONTEXT_MENU { display:inline-block; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 ._CONTEXT_MENU img { height: 18px; position: absolute; margin-left: -4px; margin-top: 5px; opacity: 0.8; display:none; margin-right: -5px; }
@@ -46,8 +47,9 @@ a:active {text-decoration: none}
 .VBAR { top:0; width: 100%; background-color:#C5C5C5; height: 20px; }
 .VBAR:active { background-color:#8D8D8D; }
 
-.BLOCK_SCREEN { z-index:1; background-color:#000000; opacity:0.5; position:absolute; top:0px; left:0px; width:100%; height:100%; display:none; }
-.MSG_WINDOW { z-index:1; top:40%; font-size:95%; width:100%; padding-top: 20px; padding-bottom: 20px; z-index:1; position:absolute; color:#FFFFFF; z-index:1; display:none; border:2px solid; border-color:rgb(129, 129, 129); border-left:none; border-right:none; }
+.BLOCK_SCREEN { z-index:1; background-color:rgba(0, 0, 0, 0.5); position:absolute; top:0px; left:0px; width:100%; height:100% !important; display:table; }
+.MSG_WINDOW_CONTAINER { display:table-cell; vertical-align:middle; }
+.MSG_WINDOW { font-size:95%; width:100%; padding-top: 20px; padding-bottom: 20px; color:#FFFFFF; border:2px solid; border-color:rgb(129, 129, 129); border-left:none; border-right:none; }
 
 .SLIMWIZ { font-size:90%; border-bottom-left-radius:10px; color:black; border-top: 11px solid transparent; border-left: 24px solid white; text-align:left; position:absolute; max-width:300px; background-color:transparent; display:none; z-index:1; }
 .SLIMWIZ .WIZ_CONTENT { border-bottom-left-radius:10px; border-bottom-right-radius:10px; border-top-right-radius:10px; background-color:white; padding:25px; margin-left:-24px; border-bottom:2px solid #ccc; border-right:2px solid #ccc; }
@@ -99,7 +101,6 @@ a:active {text-decoration: none}
 ._COLOR_PICKER { display:inline-table; width:215px; }
 .COLOR_BOX { width:20px; height:20px; display:inline-block; margin-right:3px; margin-right:0px \9; cursor:pointer; }
 .COLOR_SELECTED { border: 2px solid #fff; height: 16px !important; width: 16px !important; border-radius: 10px; }
-
 .DATEPICKER < ._INPUT_TEXT { width:75px !important; min-width:inherit !important; }
 
 .TASKWIDGET { position:absolute; background-color:white; border:#A5A5A5 1px solid; box-shadow:rgba(34, 34, 34, 0.5) 0px 0px 10px;  }

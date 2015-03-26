@@ -1,5 +1,6 @@
 <?php
 define('LANG_LOGIN_TITLE',							'Start session');
+define('LANG_LOGIN_WELCOME',						'Welcome :)');
 define('LANG_LOGIN_USER',							'Username');
 define('LANG_LOGIN_PASSWORD',						'Password');
 define('LANG_LOGIN_KEEPSESSION',					'Keep session');
@@ -12,8 +13,8 @@ define('LANG_LOGIN_ERRCODEAUTH1',					'No empty fields allowed.');
 define('LANG_LOGIN_ERRCODECONN0',					'Connection error, check your internet access and try again.');
 define('LANG_LOGIN_ERRCODEAUTH2',					'For the moments the site is on maintenance, please try again later.');
 define('LANG_LOGIN_MAINTENANCEMSG',					'The site is under maintenance, please come back later.');
-define('LANG_LOGIN_PLCHOLDER_USERNAME',				'tim.berners');
-define('LANG_LOGIN_PLCHOLDER_PASSWORD',				'&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;');
+define('LANG_LOGIN_PLCHOLDER_USERNAME',				'');
+define('LANG_LOGIN_PLCHOLDER_PASSWORD',				'');
 define('LANG_LOGIN_BROWSER_COMP',					'For a better experience in our website, we recommend to use Google Chrome.');
 define('LANG_ADMIN_LOGIN_TITLE',					'Administration panel');
 define('LANG_ADMIN_LOGIN_ACCT1',					'For more updates visit');
