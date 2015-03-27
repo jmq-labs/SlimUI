@@ -20,19 +20,21 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
         <div class="_FRAME" title="">	
              <div id="_DIVLOGINFRM" style="float: right;width: 399px;">
                 <div style="text-align:center;">
-                <p><img src="../../<?php print IMG_DIR.LOGIN_TOP_IMAGE; ?>" style="margin-botton:10px;"></p>
+                <p><?php if(LOGIN_TOP_IMAGE){ ?><img src="../../<?php print IMG_DIR.LOGIN_TOP_IMAGE; ?>" style="margin-botton:10px;"><?php }else{ ?>
+					<label class="WELCOME_LABEL"><?php print LANG_LOGIN_WELCOME; ?></label><?php } ?>
+				</p>
                 <br/>
                 </div>
                 <div class="_FRAME" title="" style="margin-top: 10px;"><label class="CONTENT_TITLE"><?php echo LANG_LOGIN_TITLE; ?></label>
 	            	 	
-                        <label class="INPUT_LABEL"><?php echo LANG_LOGIN_USER; ?>:</label>
+                        <?php if($DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_USER; ?>:</label><?php } ?>
                         <div class="_INPUT_TEXT">
-                        <input id="username" name="username" autocapitalize="off" style="width:170px" />
+                        <input id="username" name="username" autocapitalize="off" placeholder="<?php if($DEVICE_TYPE != "MOBILE"){ echo LANG_LOGIN_PLCHOLDER_USERNAME; }else{ echo LANG_LOGIN_USER; } ?>" style="min-width:170px" />
 	                    </div><br>
 	                    
-                        <label class="INPUT_LABEL"><?php echo LANG_LOGIN_PASSWORD; ?>:</label>
+                        <?php if($DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_PASSWORD; ?>:</label><?php } ?>
                         <div class="_INPUT_TEXT">
-                        <input type="password" id="password" autocapitalize="off" name="password" style="width:170px" />
+                        <input type="password" id="password" autocapitalize="off" name="password" placeholder="<?php if($DEVICE_TYPE != "MOBILE"){ echo LANG_LOGIN_PLCHOLDER_PASSWORD; }else{ echo LANG_LOGIN_PASSWORD; } ?>" style="min-width:170px" />
                         </div>
 
                         <div style=" margin-top: 10px; ">
@@ -51,9 +53,10 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
 		     <div class="_BKGSTYLE1" style="width:100%; height:50px; padding-top:10px;">
                   <div class="_FRAME _BKGSTYLE1" style="margin-top: 10px;" title="">
                       <label class="CONTENT_TITLE"><?php echo LANG_LOGIN_ACCT1; ?></label><?php echo LANG_LOGIN_ACCT2; ?>
-	    	          <br />
-                      <input type="button" ID="REQUESTACC" style="float:right;" class="_INPUT_BUTTON" onclick="" value="<?php echo LANG_LOGIN_ACCT3; ?>" />
-		          </div>		
+	    	          <p>
+                      <input type="button" ID="REQUESTACC" style="float:right;" class="_INPUT_BUTTON" onclick="parent.go('<?php echo MORE_INFO_LINK; ?>')" value="<?php echo LANG_LOGIN_ACCT3; ?>" />
+		          	  </p>
+				  </div>		
 		    </div>
        	</div>
    	  </div>            

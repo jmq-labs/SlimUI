@@ -4,12 +4,19 @@
   	<?php session_start(); if(isset($_GET['kill_session'])){ session_destroy(); } require("config/config.php"); require("config/language/".LANG.".php"); ?>
 	<?php if ((strpos($_SERVER['HTTP_HOST'],'www.')===false)) { header('Location: '.WWWROOT); exit(); } ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-    <title><?php print SITE_NAME; ?></title>
-	<link href="content/img/<?php print FAVICON; ?>" rel="shortcut icon">
+	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">	
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />		
+	<meta name="apple-mobile-web-app-title" content="SlimUI">
+    
+	<link href="<?php print IMG_DIR.FAVICON; ?>" rel="shortcut icon">
+	<link rel="apple-touch-icon" href="<?php print IMG_DIR.IOSICON; ?>">
+	<link rel="apple-touch-startup-image" href="<?php print IMG_DIR; ?>splash.png">
 	<link rel='stylesheet' type='text/css' href='content/themes/<?php print THEME; ?>/css/style.css' />	    
     <?php include('config/header.php'); ?>
- 
+    
+	<title><?php print SITE_NAME; ?></title>
+	 
     <script>
   	var IMG_DIR = "<?php print IMG_DIR; ?>";
 	var THEME = "<?php print THEME; ?>";
@@ -21,7 +28,9 @@
   	var LANG_MAIN_CLOSESESSION = "<?php print LANG_MAIN_CLOSESESSION; ?>";
   	var LANG_MAIN_CLOSESESSIONMSG = "<?php print LANG_MAIN_CLOSESESSIONMSG; ?>";	
   	var LANG_MAIN_CLOSESESSIONMSGBTY = "<?php print LANG_MAIN_CLOSESESSIONMSGBTY; ?>";
-  	var LANG_MAIN_CLOSESESSIONMSGBTN = "<?php print LANG_MAIN_CLOSESESSIONMSGBTN; ?>";		
+  	var LANG_MAIN_CLOSESESSIONMSGBTN = "<?php print LANG_MAIN_CLOSESESSIONMSGBTN; ?>";
+	var LANG_LOGIN_BROWSER_COMP = "<?php print LANG_LOGIN_BROWSER_COMP; ?>";
+	var LANG_SAFEMODE_ALERT = "<?php print LANG_SAFEMODE_ALERT; ?>";	
 	</script>
 	   
 	<script type="text/javascript" src="content/scripts/jquery/jquery-1.11.2.min.js"></script>

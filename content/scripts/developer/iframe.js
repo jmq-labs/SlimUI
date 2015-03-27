@@ -8,6 +8,9 @@ $(document).ajaxStop(function(e,x,s){
 });
 
 $(function () {	
+	if(parent.DEVICE_TYPE=="MOBILE"){ 
+		$('input').on('change', function(){ $(this).blur(); }); 
+	}
 	if(isAsp){  
 		if( !safeMode){
 			ajaxPostBack();
@@ -69,7 +72,7 @@ function ajaxPostBack(f){
         }).fail(function(xhr,x,e){			
 			var appname = parent.$("#"+window.frameElement.id).attr("appname");
 			var app = parent.$("#WB_"+appname);
-    		parent.SlimAlert("Parece que hubo un error en la aplicación. ¿Desea iniciar la aplicación en modo seguro?<br />" + "<code>" + e + "</code>",function(){    				
+    		parent.SlimAlert(parent.LANG_SAFEMODE_ALERT+"<br /><code>" + e + "</code>",function(){    				
 				parent.NewDOM(app,parent.WHid++,true); 
     		});			
 		});

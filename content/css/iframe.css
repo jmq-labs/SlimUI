@@ -11,6 +11,7 @@ label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none
 .E404 { font-weight: normal; font-style: normal; text-decoration: none; font-size: 36pt; color:#bbb; float:left; margin-right:20px; margin-top: 27px; }
 .P_CONTENT { background-color: rgb(233, 233, 233); padding: 16px; color: rgb(65, 65, 65); font-size: 100%; border-bottom-right-radius: 40px; border-top-right-radius: 40px; }
 .DISPLAY-BLOCK { display:inline-block; }
+.WELCOME_LABEL { color: #12A3FF; font-size: 25px; font-weight: bold; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
 
 .itemgridbutton { width: 65px; text-align: center; }
 .itemgridbutton input { min-width:75px; }
@@ -29,3 +30,4 @@ label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none
 .ui-datepicker { font-size:100% !important; }
 .ui-tabs li { list-style: none; float: left; position: relative; top: 0; margin: 1px .2em 0 0; border-bottom: 0; padding: 0; white-space: nowrap; display: inline-table; }
 .ui-tabs ul { margin: 0; padding: .2em .2em 0; overflow-x: auto; display: flex; width: 100%; overflow-y: hidden; }
+.ui-widget input[type=button] { font-size: 14px; }

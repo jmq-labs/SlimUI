@@ -7,17 +7,18 @@ $(function(){
 	$(window).bind('hashchange', function(){ parent.window.location(WWWROOT); });
 	if(THEME=="x-mas"){$.getScript( "content/themes/x-mas/snow.js");}
 	
-	var chromelogo = "<p><a href='http://www.google.com/intl/en/chrome/browser/'><img  style='border:none;' src='content/img/chromelogo.png' /></a></p>";
-	if(browserName.indexOf("Chrome") == -1 && browserName.indexOf("Safari") == -1){ 
-		SlimAlert("Para una mejor experiencia en su visita al sistema, recomendamos utilizar el navegador Google Chrome."+chromelogo);
+	var BrowserLogo = "<p><a href='http://www.google.com/intl/en/chrome/browser/'><img  style='border:none;' src='content/img/chromelogo.png' /></a></p>";
+	if(browserName.indexOf("Chrome") == -1 && browserName.indexOf("Safari") == -1 && browserName.indexOf("Mobile") == -1){ 
+		SlimAlert(LANG_LOGIN_BROWSER_COMP + BrowserLogo);
 		_safeMode = true; 
 	}
+	if(window.navigator.standalone) {    
+    	$('body').css("padding-top","20px");
+	}
 	
-	/************************* AJAX SETUP *************************/
+	/************************* AJAX CACHE SETUP *************************/
 	
-	$.ajaxSetup ({    
-	    cache: (AJAX_CACHE === true) ? true : false,
-	});
+	$.ajaxSetup ({ cache: (AJAX_CACHE === true) ? true : false });
 	
 	/************************* DYNAMIC EVENT HANDLERS *************************/
 	

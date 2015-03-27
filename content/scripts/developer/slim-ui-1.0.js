@@ -31,9 +31,13 @@ $.fn.SlimMenu = function(o,s){
       });
       if(!o){
        if(!$(this).hasClass("_MENU")){
-    	$(this).children(".INPUT_MENU").each(function(){
-    		$(this).append("<div class='MENU_LIST'></div>");
-    		$(this).children(".MENU_LIST").append($(this).children("span, hr"));
+    	$(this).children(".INPUT_MENU").each(function(){ 
+			var divTitle = "";
+			if($(this).contents("._INPUT_BUTTON").length > 0){
+				var divTitle = "<div class='MENU_LIST_TITLE _VOID'>" + $(this).contents().get(0).nodeValue; + "</div>";
+			}
+			$(this).append("<div class='MENU_LIST'>" + divTitle + "</div>");    		
+			$(this).children(".MENU_LIST").append($(this).children("span, hr"));
     		$(this).click(function(e){
     		$(".MENU_LIST").hide("fade",100); 
     			if(e.target.nodeName!="SPAN"){ 
@@ -272,77 +276,11 @@ $(this).each(function(){
 });	
 }
 
-$.fn.SlimTask = function(){	
-	$(this).bind("click", function(e){ 
-		$(".TASKWIDGET").remove();
-			var meta_tag;
-			var task_id = $(this).attr("task_id");
-			var meta_id = $(this).attr("meta");
-			switch(meta_id){
-				case "taskstart":
-					 meta_tag = "#qedit_content_4";
-					 break;
-			}  		
-			var taskwidget = "<div class='TASKWIDGET FRAME CONTENT'><div class='BLURBKG'></div><div id='OPS'></div></div>";  
-	  		$("body").append(taskwidget);
-			$(".TASKWIDGET").css("top", (e.pageY) + "px");
-			$(".TASKWIDGET").css("left", (e.pageX) + "px");
-			$(".TASKWIDGET > #OPS").load("../../content/apps/planner/widgets/quickedit.html " + meta_tag + ", #qedit_footer",function(){ 
-				$(".FRAME").SlimFrame();
-            	$(".TASKWIDGET .CHECKBOX").SlimCheckbox();
-                $(".TASKWIDGET .INPUT_BUTTON").SlimButton();
-            	$(".TASKWIDGET .INPUT_TEXT, :text").SlimTextbox();
-            	$(".TASKWIDGET .COMBO_BOX").SlimComboBox();
-            	$(".TASKWIDGET .TEXT_AREA").SlimTextArea();
-            	$(".TASKWIDGET .DATEPICKER").datepicker().datepicker('option', {
-            		  dateFormat: 'dd-mm-yy'	
-            	});
-				$("#qedit_6").datepicker().datepicker('option', {
-              		  dateFormat: 'dd-mm-yy', 
-              		  onSelect: function(){ DP_endDate($("#qedit_6"),$("#qedit_7")) }
-              	});
-              	
-              	$("#qedit_7").datepicker("setDate", 'today');              	            	
-            	$("#QUICK_TIMECONFIG").hide();
-            	$("#qedit_8").timepicker({
-            		defaultValue: "00:00",
-                    hourMin: 1,
-                    hourMax: 23,
-                    stepMinute: 5,
-                    timeFormat: 'hh:mm tt'
-                });
-            	$("#qedit_9").timepicker({
-            		defaultValue: "00:00",
-                    hourMin: 1,
-                    hourMax: 23,
-                    stepMinute: 5,
-                    timeFormat: 'hh:mm tt'
-                });
-				$("#qedit_cancel").click(function(){ $(".TASKWIDGET").remove();  });
-				
-				DP_endDate($("#qedit_6"),$("#qedit_7"));
-				ReqFields();
-				
-				<!------------ load field's data ------------->
-								
-				var data = $(userTasks.getUserTasks(false));
-				var task = getObject(data, "id", task_id);
-								
-				$(".TASKWIDGET #qedit_6").val(task.startdate);
-				$(".TASKWIDGET #qedit_7").val(task.enddate);
-				$(".TASKWIDGET #qedit_8").val(task.starttime);
-				$(".TASKWIDGET #qedit_9").val(task.endtime);				
-				
-			});		
-		$(userTasks.updateUserTask(this));  
-	});
-}
-
 /************************* ALERT WINDOW CONSTRUCTOR *************************/
 
 function SlimAlert(m,fn){
     if(!m){ m = "- Message not defined!"; } 
-	var BKS = "<div class='BLOCK_SCREEN'></div><div class='MSG_WINDOW'></div>";
+	var BKS = "<div class='BLOCK_SCREEN'><div class='MSG_WINDOW_CONTAINER'><div class='MSG_WINDOW'></div></div></div>";
 	var BT_OPTION1 = "<br /><input type='button' id='MSG_CONFIRM_BT' class='_INPUT_BUTTON' value='" + LANG_MAIN_CLOSESESSIONMSGBTY + "' />"; 
 	var BT_OPTION2 = "<br /><input type='button' id='MSG_CONFIRM_BT' class='_INPUT_BUTTON' value='" + LANG_MAIN_CLOSESESSIONMSGBTY + "' /><input type='button' id='MSG_CANCEL_BT' class='_INPUT_BUTTON' value='" + LANG_MAIN_CLOSESESSIONMSGBTN + "' />";
 	

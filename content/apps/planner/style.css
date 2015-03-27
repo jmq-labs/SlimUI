@@ -43,7 +43,7 @@ body { overflow-y:scroll; }
 .TDODD { cursor:pointer; }
 .TRTITLE { }
 .TICKET_CONTAINER .TICKET { cursor:pointer; }
-.TICKETS_TABLE { border-collapse:collapse; width:100%; font-size: 85%; table-layout:fixed; }
+.TICKETS_TABLE { border-collapse:collapse; width:100%; font-size: 90%; table-layout:fixed; }
 .TICKETS_TABLE .TRTITLE td { font-size:110% !important; padding-top:10px; padding-bottom:10px; }
 .TICKETS_TABLE td { padding-left:5px; padding-right:5px; word-wrap: break-word; overflow:hidden; }
 .TICKETS_TABLE .TDOPTIONS  { max-width: 300px; }
@@ -54,9 +54,9 @@ body { overflow-y:scroll; }
 .TICKETS_TABLE .BTR2 { width:100px; max-width:100px; }
 .TICKETS_TABLE .PRIORITY_TD { width:8px; }
 .TICKETS_TABLE .TD1 { width:20px; white-space:nowrap; text-align:center; }
-.TICKETS_TABLE .TD2 { width:55px; white-space:nowrap; }
+.TICKETS_TABLE .TD2 { width:60px; white-space:nowrap; }
 .TICKETS_TABLE .TD3 { width:145px; white-space:nowrap; }
-.TICKETS_TABLE .TD4 { width:240px; white-space:nowrap; }
+.TICKETS_TABLE .TD4 { width:235px; white-space:nowrap; }
 .TICKETS_TABLE .TD5 { width:75px; white-space:nowrap; }
 .TICKETS_TABLE .TD6 { width:100px; white-space:nowrap; }
 .TICKETDATA { text-align:left; line-height: 25px; }
