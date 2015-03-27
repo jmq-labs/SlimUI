@@ -12,6 +12,9 @@ $(function(){
 		SlimAlert(LANG_LOGIN_BROWSER_COMP + BrowserLogo);
 		_safeMode = true; 
 	}
+	if(window.navigator.standalone) {    
+    	$('body').css("padding-top","20px");
+	}
 	
 	/************************* AJAX CACHE SETUP *************************/
 	

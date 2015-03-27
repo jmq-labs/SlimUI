@@ -5,7 +5,7 @@
 ._INPUT_BUTTON:active { background-color:#222; }
 ._BKGSTYLE1 { background-color:#222 !important; color: white !important; }
 ._BKGSTYLE2 { background-color:#FFF; }
-._WIDGET_BUTTON { background-color:#555; }
+._WIDGET_BUTTON { background-color:#212121; }
 ._WIDGET_BUTTON:active { opacity:0.8; }
 .MSG_WINDOW { background-color:#222; }
 .USER_PROFILE a { color:rgba(255, 255, 255, 0.5); }

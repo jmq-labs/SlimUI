@@ -4,14 +4,19 @@
   	<?php session_start(); if(isset($_GET['kill_session'])){ session_destroy(); } require("config/config.php"); require("config/language/".LANG.".php"); ?>
 	<?php if ((strpos($_SERVER['HTTP_HOST'],'www.')===false)) { header('Location: '.WWWROOT); exit(); } ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">	
 	<meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <title><?php print SITE_NAME; ?></title>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />		
+	<meta name="apple-mobile-web-app-title" content="SlimUI">
+    
 	<link href="<?php print IMG_DIR.FAVICON; ?>" rel="shortcut icon">
 	<link rel="apple-touch-icon" href="<?php print IMG_DIR.IOSICON; ?>">
+	<link rel="apple-touch-startup-image" href="<?php print IMG_DIR; ?>splash.png">
 	<link rel='stylesheet' type='text/css' href='content/themes/<?php print THEME; ?>/css/style.css' />	    
     <?php include('config/header.php'); ?>
- 
+    
+	<title><?php print SITE_NAME; ?></title>
+	 
     <script>
   	var IMG_DIR = "<?php print IMG_DIR; ?>";
 	var THEME = "<?php print THEME; ?>";

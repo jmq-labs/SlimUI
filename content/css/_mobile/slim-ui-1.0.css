@@ -57,15 +57,16 @@ a:active {text-decoration: none}
 
 /*** CONTROLES ***/
 
-._INPUT_TEXT { min-width:205px; max-width:235px; height: 27px; border: 2px solid; border-color: #CFCFCF; background-color: white; margin-top: 5px; margin-bottom: 5px; display:inline-block; text-align: left; padding-left: 10px; padding-right: 10px; }
-._INPUT_TEXT input { border:none; height:90%; outline-width:0; color:#515151; background-color:transparent; width:100% !important; }
+._INPUT_TEXT { height: 27px; border: 2px solid; border-color: #CFCFCF; background-color: white; margin-top: 5px; margin-bottom: 5px; display:inline-block; text-align: left; }
+._INPUT_TEXT input { border:none; height:21px; outline-width:0; color:#515151; background-color:transparent; min-width:117px; max-width:205px; width:205px; padding-left: 10px; padding-right: 10px; }
 ._INPUT_TEXT:hover { border-color:#585676; }
+._INPUT_TEXT input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #fff inset; }
 
 ._COMBO_BOX { min-width: 100px; max-width:200px; height: 31px; border: 2px solid; border-color: #CFCFCF; margin-top: 5px; margin-bottom: 5px; display: inline-block; margin-left:0px; margin-right: 4px; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
 ._COMBO_BOX:hover { border-color:#585676; }
 
 ._CHECKBOX { min-width:20px; padding:3px 9px 3px 3px; display:inline-block; *display: inline; text-align:center; }
-._CHECKBOX label { cursor: pointer; float:right; margin-left:5px; }
+._CHECKBOX label { cursor: pointer; float:right; margin-left:5px; margin-top:1px; }
 ._CHECKBOX input[type=checkbox] { background-color:white; background-image:url('../../../content/img/checked.png'); background-size:0%; float:left; height:15px; width:15px; border:1px #B3B3B3 solid; -webkit-appearance:none; -webkit-border-radius:0px; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; outline-width:0; cursor:pointer; background-repeat: no-repeat; background-position: center; }
 ._CHECKBOX input[type=checkbox]:active { background-color:#ccc; }
 ._CHECKBOX input[type=checkbox]:checked { background-size:100%; }
