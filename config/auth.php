@@ -7,6 +7,7 @@
 *
 **********************************************************/
 
+error_reporting(0);
 session_start();
 require_once('config.php');
 
@@ -61,24 +62,36 @@ if(LDAPAUTH == "true"){
   }else{
     if(!empty($username) && !empty($ldappass)){
       if($ldappass=="" || $ldappass==NULL){ $ldappass="NA"; }	
-  	  $DBNAME = "ccvm";
-      $DBUSER = "sa";
-      $DBPASS = "22197926";
-      $MD5PW = md5($ldappass);
-  	
-      $conn = odbc_connect($DBNAME, $DBUSER, $DBPASS);
-      if(!$conn){ header('Location: '.$redirectUrlFail."&code=e0Conn", true, 302); exit; }
-  	
-  	$login = "SELECT * FROM usuarios WHERE usuario = '".$_POST['username']."' AND password =  '$MD5PW'";
-      $exec = odbc_exec($conn, $login);
-      $session = odbc_fetch_array($exec);	
-      if($session['id_usuario']){	 
+  	  $DBSERVER = DBSERVER;
+      $DBNAME = DBNAME;
+	  $DBUSER = DBUSER;
+      $DBPASS = DBPASS;
+	  $DBUSRT = DB_USERS_TABLE;
+	  $DBUSRN = DB_USERS_FIELD_USER;
+	  $DBUSRP = DB_USERS_FIELD_PASS;
+      $MD5PW = md5($ldappass);    
+	  
+  	  $login = "SELECT * FROM $DBUSRT WHERE $DBUSRN = '".$_POST['username']."' AND $DBUSRP =  '$MD5PW'";
+	  
+      if(ODBC_DBNAME){
+	    $conn_odbc = odbc_connect($DBNAME, $DBUSER, $DBPASS); 
+	  	if(!$conn_odbc){ header('Location: '.$redirectUrlFail."&code=e0Conn", true, 302); exit; }
+		$exec = odbc_exec($conn_odbc, $login);
+      	$session = odbc_fetch_array($exec);	
+	  }else{
+	    $conn_mysql = mysql_connect($DBSERVER, $DBUSER, $DBPASS);		
+		if(!$conn_mysql){ header('Location: '.$redirectUrlFail."&code=e0Conn", true, 302); exit; }
+		mysql_select_db($DBNAME, $conn_mysql);		
+		$exec = mysql_query($login);
+      	$session = mysql_fetch_array($exec);		
+	  }
+      if($session[$DBUSRN]){	 
   		if($keepsession){
     		$_SESSION['keepsession'] = true;				
     	}   
-  		$_SESSION['uid'] = @$session['id_usuario'];
+  		$_SESSION['uid'] = @$session[$DBUSRN];
 		$_SESSION['ldappass'] = $ldappass;
-    	$_SESSION['user_displayname'] = utf8_encode(@$session['displayname']);
+    	$_SESSION['user_displayname'] = utf8_encode(@$session[DB_USERS_FIELD_DISPLAY_NAME]);
   		$_SESSION['user_department'] = utf8_encode(@$session['department']);
     	$_SESSION['user_title'] = @$session['title'];
   		$_SESSION['user_email'] = @$session['mail'];

@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 $count = 0;
 $archivSize = 0;
 $onlinecount = 0;
