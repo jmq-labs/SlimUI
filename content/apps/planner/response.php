@@ -80,13 +80,13 @@ if ($as != "" && $as != NULL ) {
                   
        $data = "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#444;\">\n"
     	 	   	 ."Has recibido una invitación de colaboración en Planner.<br /><br />"
-    			 ."<b>De: </b>".utf8_decode($no)."<br /><br />"
+    			 ."<b>".utf8_decode($as)."</b><br /><br />"
+				 ."<b>De: </b>".utf8_decode($no)."<br /><br />"
 				 ."<b>Descripción de la actividad: </b>".utf8_decode($de)."<br /><br />";		 
        
 	   if(isset($_POST['isevent'])){   	   		   
 		   $today = date("Ymd\THis", time());
-		   $mail->AddAddress($_SESSION['user_email'], "Usuario de Planner");		   
-    	   $DescDump = str_replace("\r", "=0D=0A=", $de);
+		   $mail->AddAddress($_SESSION['user_email'], "Usuario de Planner");    	   
     	   $Start = date("Ymd\THis", strtotime($fi)); 
     	   $End = date("Ymd\THis", strtotime($ff));	   
     	   
@@ -97,8 +97,8 @@ if ($as != "" && $as != NULL ) {
                   
 				  ."BEGIN:VEVENT".PHP_EOL
                   ."ORGANIZER;CN=".$_SESSION['user_displayname'].":MAILTO:".$_SESSION['user_email'].PHP_EOL
-                  ."DESCRIPTION;LANGUAGE=es-ES:$de".PHP_EOL
-                  ."SUMMARY;LANGUAGE=es-ES:$as".PHP_EOL
+                  ."DESCRIPTION;LANGUAGE=es-ES:".utf8_decode($de).PHP_EOL
+                  ."SUMMARY;LANGUAGE=es-ES:".filter_var(utf8_decode($as), FILTER_SANITIZE_STRING).PHP_EOL
 				  ."DTSTART;TZID=America/Tegucigalpa:$Start".PHP_EOL
 				  ."DTEND;TZID=America/Tegucigalpa:$End".PHP_EOL
                   ."UID:$ID".PHP_EOL
@@ -117,7 +117,7 @@ if ($as != "" && $as != NULL ) {
                   ."TRIGGER;RELATED=START:-PT2H".PHP_EOL
                   ."END:VALARM".PHP_EOL
                   ."END:VEVENT".PHP_EOL
-                  ."END:VCALENDAR";
+                  ."END:VCALENDAR";				  
 				  			  
     	   $mail->AddStringAttachment("$iCal", "evento.ics", "base64", "text/calendar; charset=utf-8; method=REQUEST");		   
 	   }	      			  

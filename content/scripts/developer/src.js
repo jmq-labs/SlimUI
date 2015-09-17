@@ -371,7 +371,7 @@ function ConfirmAsp(m, b){
     if(_confirmCallback == false){		
 		parent.SlimAlert(m, function a(){	  
     	  _confirmCallback = true;		    	  
-		  $.when($("#MAIN" + CurrentFrame).contents().find("#" + $(b).attr("id")).trigger("click")).then(function(){ _confirmCallback = false; });  		  
+		  $.when($(b).trigger("click")).then(function(){ _confirmCallback = false; });  		  
 		});		
 	}
     return _confirmCallback;

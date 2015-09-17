@@ -97,8 +97,7 @@ $(document).ready(function(){
 														
 			if( id && ( !pid && !task.projectid && task.isevent == 0 ) ){
 				var tname = ui.draggable.find(".TD4").html();
-				Confirm("Esta seguro que desea eliminar la tarea '" + tname + "'", function(){ 
-					SlimLockScr(true);
+				Confirm("Esta seguro que desea eliminar la tarea '" + tname + "'", function(){					
 					$.ajax({
                       type: 'POST',
                       url: WKDIR + "manager/process.php",
@@ -111,8 +110,7 @@ $(document).ready(function(){
 			
 			if( id && ( !pid && task.projectid ) ){
 				var tname = ui.draggable.find(".TD4").html();
-				Confirm("La tarea '" + tname + "' actualmente pertenece a un proyecto, si la elimina también se excluirá del mismo, desea continuar?", function(){ 
-					SlimLockScr(true);
+				Confirm("La tarea '" + tname + "' actualmente pertenece a un proyecto, si la elimina también se excluirá del mismo, desea continuar?", function(){					
 					$.ajax({
                       type: 'POST',
                       url: WKDIR + "manager/process.php",
@@ -126,8 +124,7 @@ $(document).ready(function(){
 			if( pid && ( !id ) ){ 
 				if($(userInfo.getUserInfo())[0]['userid'] == admin){
     				var pname = ui.draggable.find(".TDP3").html();
-    				Confirm("Esta seguro que desea eliminar el proyecto '" + pname + "'", function(){  
-    					SlimLockScr(true);
+    				Confirm("Esta seguro que desea eliminar el proyecto '" + pname + "'", function(){    					
 						$.ajax({
                           type: 'POST',
                           url: WKDIR + "manager/process.php",
@@ -144,8 +141,7 @@ $(document).ready(function(){
 			
 			if(!pid && task.isevent == 1 && task.taskowner == $(userInfo.getUserInfo())[0]['userid'] ){
 				var tname = ui.draggable.find(".TD4").html();
-				Confirm("Esta seguro que desea eliminar el evento '" + tname + "'", function(){ 
-					SlimLockScr(true);
+				Confirm("Esta seguro que desea eliminar el evento '" + tname + "'", function(){					
 					$.ajax({
                       type: 'POST',
                       url: WKDIR + "manager/process.php",
@@ -171,8 +167,7 @@ $(document).ready(function(){
 														
 			if( id && ( task.projectid ) ){
 				var tname = ui.draggable.find(".TD4").html();
-				Confirm("Esta seguro que desea excluir la tarea '" + tname + "'", function(){ 
-					SlimLockScr(true);
+				Confirm("Esta seguro que desea excluir la tarea '" + tname + "'", function(){					
 					$.ajax({
                       type: 'POST',
                       url: WKDIR + "manager/process.php",

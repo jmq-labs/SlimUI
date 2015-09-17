@@ -50,30 +50,14 @@ $(document).ready(function(){
 		  onSelect: function(){ DP_endDate($("#fechain"),$("#fechafin")); }
 	});
 	
-	$("#fechafin").datepicker("setDate", 'today');
-	DP_endDate($("#fechain"),$("#fechafin"));
-	
-	$("#ARROWHOLDER").click( function(){ 		
-		if($(this).children("#WIDGET_ARROW").hasClass("TURN_LEFT")){		  
-    		$(this).children("#WIDGET_ARROW").removeClass("TURN_LEFT");
-			$(this).children("#WIDGET_ARROW").addClass("TURN_RIGHT");			
-			$(".SEND_TASK").animate({"right": "-5px"}, 100);
-			$("#MAIN_CONTENT").animate({"margin-right": "20%"}, 100);					  		  
-    	}else{					  
-    		$(this).children("#WIDGET_ARROW").removeClass("TURN_RIGHT");
-			$(this).children("#WIDGET_ARROW").addClass("TURN_LEFT");			
-			$(".SEND_TASK").animate({"right": "-343px"}, 100);
-			$("#MAIN_CONTENT").animate({"margin-right": ""}, 100);			
-    	}    	 
-    });
-	$("#ARROWHOLDER").click();	
+	$("#fechain").datepicker("setDate", 'today');
+	DP_endDate($("#fechain"),$("#fechafin"));	
 });
 
 <!-------------------------------------------------------------------------------------->
 
 function SendTicket(){
-if(checkempty()){
-	SlimLockScr(true);
+if(checkempty()){	
 	$("#nombre").val(parent.activeUsr);
 	$.ajax({
       url: WKDIR + "response.php",
@@ -92,7 +76,6 @@ if(checkempty()){
 
 function sendProject(){
   if(checkemptyproject()){	
-	SlimLockScr(true);
 	$.ajax({
       url: WKDIR + "response.php",
 	  type: "POST",      
@@ -124,6 +107,8 @@ function clearTicketForm(){
   $("#fechain").datepicker("setDate", 'today');
   $(".DIV_INVITADO").remove();
   $("#TIMECONFIG").hide();
+  $("#allday").attr('Checked','Checked');
+  $("#isevent").removeAttr('Checked'); 
   $(userTasks.getUserTasks(true));
   DP_endDate($("#fechain"),$("#fechafin"));
 }

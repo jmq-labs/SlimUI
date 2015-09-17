@@ -23,8 +23,8 @@ body { overflow-y:scroll; }
 .TICKETS_TABLE .DIVOPTIONS  { line-height:20px; text-align:center; padding:10px; border:2px #D7D7D7 solid; border-bottom-left-radius: 10px; border-bottom-right-radius: 10; border-top: none; margin-top: -1px; }
 .TICKETS_TABLE .TDODD { background-color: #EBEBEB; }
 .TICKETS_TABLE .TICKETBTN { width:70px; }
-.TICKETS_TABLE .BTR1 { width:100px; }
-.TICKETS_TABLE .BTR2 { width:100px; }
+.TICKETS_TABLE .BTR1 { width:105px; }
+.TICKETS_TABLE .BTR2 { width:105px; }
 .TICKETS_TABLE .TD1 { max-width:20px; white-space:nowrap; text-align:center; }
 .TICKETS_TABLE .TD2 { max-width:60px; white-space:nowrap; }
 .TICKETS_TABLE .TD3 { max-width:200px; white-space:nowrap; }

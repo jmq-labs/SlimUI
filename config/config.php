@@ -1,7 +1,8 @@
 <?php
 $cookie_data = array(); $display_filters = array(); $UA = $_SERVER['HTTP_USER_AGENT'];
 if(stristr($UA, "Mobile")){ $DEVICE_TYPE = "MOBILE"; }
-$settings = simplexml_load_file('c:/inetpub/wwwroot/slimui/slimui.config');
+if(!@$_SESSION['CWD']){$_SESSION['CWD'] = getcwd(); }
+$settings = simplexml_load_file($_SESSION['CWD'].'/slimui.config');
 
 foreach($settings[0]->config as $key => $value)
 {    

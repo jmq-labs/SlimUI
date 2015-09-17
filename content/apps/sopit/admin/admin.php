@@ -7,7 +7,6 @@
 <div class="BODY_CONTAINER">
 <div class="FRAME">
 <div class="FRAME" title="Administración de Tickets">
-<p><span>Listado de tickets generados por los usuarios del sistema.</span></p>
 <div id="MENU_CONTAINER">	 
 	<label class="INPUT_LABEL" >Resultados: </label>
 		<select id="ITEMS" class="_COMBO_BOX" style="margin-left:10px" onchange="showTicketAll()" >			

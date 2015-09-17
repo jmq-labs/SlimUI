@@ -6,8 +6,8 @@ $onlinecount = 0;
 $directory = 'archive/';
 $it = new RecursiveDirectoryIterator($directory);
 
-echo "<table class='TABLE' ><tr class='TRTITLE'><td class='TD1'><b>No</b></td><td class='TD2'><b>Usuario</b></td>";
-if(!isset($_SESSION['_ISMOBILE']) && $_SESSION['_ISMOBILE']!="true"){
+echo "<table class='TABLE' ><tr class='TRTITLE'>";
+if(@$_SESSION['_ISMOBILE'] && @$_SESSION['_ISMOBILE']!="true"){
 	echo "<td><b>Tamaño</b></td><td><b>Archivos</b></td>";
 }
 echo "<td class='TD3'></td></tr>";
@@ -18,7 +18,7 @@ while($it->valid()) {
 		$new_str_nav = "Desconocido";
 		$new_str_ip = "No disponible";		
 		$lastFile ="";
-		$lastdate = new dateTime();
+		$lastdate = 0;
 		$lastmodify = "No disponible";
 		$totalSize = 0;
 		$itemcount = 0;
@@ -39,19 +39,19 @@ while($it->valid()) {
          	   </script>	   			
 			<?php }			
 						
-			if( strtotime(date("d-m-Y g:i:s a", $file->getMTime())) > strtotime($lastdate)){
-				$lastmodify = date("d-m-Y g:i a", $file->getMTime());
-				$lastdate = date("d-m-Y", $file->getMTime());
+			if( $file->getMTime() > $lastdate){
+				$lastmodify = $file->getMTime();
+				$lastdate = $file->getMTime();
 				$lastFile = $file->key();
 			}	
 			$file->next();
 		}			
-		if(strtotime($lastmodify) > strtotime("-5 minutes",strtotime(date("d-m-Y g:i a")))){ 
-				$bullet = "<font color='#25D41C' size='3'><b>o</b></font>";
-				$status = $bullet." En linea"; $onlinecount++;                     
+		if($lastmodify > strtotime("-5 minutes",time())){ 
+				$bullet = "<font color='#25D41C' size='3'><b>|</b></font>";
+				$status = " En linea"; $onlinecount++;                     
 			}else{ 
-				$bullet = "<font color='#D41E1E' size='3'><b>o</b></font>";
-				$status = $bullet." Sin actividad"; 
+				$bullet = "<font color='#D41E1E' size='3'><b>|</b></font>";
+				$status = " Sin actividad"; 
 		}		
         $lines = file($lastFile);
         foreach($lines as $line){
@@ -68,7 +68,7 @@ while($it->valid()) {
         }
 		$archivSize += $totalSize;		
         echo "<td class='TD1'>".$count."</td><td>".$bullet." ".utf8_encode($it->getSubPathname()) . "</td>";
-       	if(!isset($_SESSION['_ISMOBILE']) && $_SESSION['_ISMOBILE']!="true"){
+       	if(@$_SESSION['_ISMOBILE'] && @$_SESSION['_ISMOBILE']!="true"){
 			echo "<td class='TD1'>".round((($totalSize)/1024))." KB</td><td class='TD1'>".$itemcount."</td>";
        	}
 		echo "<td class='TD3'><input id='BT".$count."' class='_INPUT_BUTTON LOGBT' value='Ver' type='button' logId='".$count."' ></td>"		
@@ -79,7 +79,7 @@ while($it->valid()) {
 			."<tr><td><b>Navegador:</b></td><td>".$new_str_nav."</td></tr>"
 			."<tr><td><b>Dirección Ip:</b></td><td>".$new_str_ip."</td></tr>"
 			."<tr><td><b>Localidad:</b></td><td><div id='LOC".$count."' ip='".$new_str_ip."'></div></td></tr>"
-			."<tr><td><b>Ultima sesión:</b></td><td>".$lastmodify."</td></tr></table>"			 
+			."<tr><td><b>Ultima sesión:</b></td><td>".date("d-m-Y g:i a",$lastmodify)."</td></tr></table>"			 
 			."</div></td></tr>";		
     echo "</tr>";	
 	}
