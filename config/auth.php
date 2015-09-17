@@ -46,6 +46,7 @@ if(LDAPAUTH == "true"){
     			$entries = ldap_get_entries($ldapconn, $result);
     			
     			$_SESSION['uid'] = $entries[0]['samaccountname'][0];
+				$_SESSION['ldappass'] = $ldappass;
     			$_SESSION['user_displayname'] = $entries[0]['displayname'][0];
     			$_SESSION['user_department'] = $entries[0]['department'][0];
     			$_SESSION['user_title'] = $entries[0]['title'][0];
@@ -76,6 +77,7 @@ if(LDAPAUTH == "true"){
     		$_SESSION['keepsession'] = true;				
     	}   
   		$_SESSION['uid'] = @$session['id_usuario'];
+		$_SESSION['ldappass'] = $ldappass;
     	$_SESSION['user_displayname'] = utf8_encode(@$session['displayname']);
   		$_SESSION['user_department'] = utf8_encode(@$session['department']);
     	$_SESSION['user_title'] = @$session['title'];

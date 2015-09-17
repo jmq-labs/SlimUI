@@ -13,7 +13,7 @@
 /*********************************************************************/
 
 function eLog(t,d){
-   if(ELOGS == "true"){
+   if(ELOGS === "true"){
       $.ajax({
              async: true,
          	  url: "content/apps/logs/process.php",
@@ -322,7 +322,7 @@ function SlimAlert(m,fn){
 
 function SlimLockScr(o){
 	if(o){	    
-	   var BKS = "<div class='BLOCK_SCREEN'></div><div class='MSG_WINDOW'></div>"; 
+	   var BKS = "<div class='BLOCK_SCREEN'></div>"; 
 	   if($(".BLOCK_SCREEN").length == 0){ 
 	   		$('body').append(BKS);
 			$(".BLOCK_SCREEN").height($(document).height());

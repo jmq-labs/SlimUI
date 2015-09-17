@@ -1,5 +1,4 @@
 body { text-align:center; margin:0;}
-body,div,span,table,input,textarea { font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif"; font-size:1em; }
 hr { border:thin; border-style:solid; border-width:1px; border-color:#CDCDCD; }
 label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 a:link {text-decoration: none}
@@ -7,7 +6,7 @@ a:visited {text-decoration: none}
 a:active {text-decoration: none}
 
 .ICON_RIGHT {  background-position-x: 100%; background-repeat: no-repeat; background-position-y: 50%; background-position: 100%; }
-.ICON_LEFT { background-size:30px; background-repeat: no-repeat; background-position: left, center, center; }
+.ICON_LEFT { background-size:28px; background-repeat: no-repeat; background-position: left, center, center; }
 .SEPARATOR { border-left:1px solid white; display:inline-block; height:20px; position:relative; float:left; margin:0; top:10px; visibility:visible; opacity:.65; }
 
 ._MENU { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
@@ -33,7 +32,7 @@ a:active {text-decoration: none}
 ._FRAME { background-color:white; color:black; padding:20px; border:2px solid; border-top:none; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-color:#CFCFCF; text-align:left; vertical-align:middle; overflow:hidden; }
 ._FRAME ._FRAME { border:1px solid; border-left:none; border-right:none; border-top:none; border-color:#CFCFCF; }
 ._FRAME .DIV_WIDGET { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
-._FRAME .CONTENT_TITLE { float:left; margin-top:-25px; font-size:120%; }
+._FRAME .CONTENT_TITLE { float:left; margin-top:-25px; font-size:120%; position:absolute; font-weight:600; }
 
 .DIV_CONTENT_SCROLL { overflow:hidden; width:100%; height:100%; overflow:auto\0/IE8+9; }
 
@@ -49,7 +48,7 @@ a:active {text-decoration: none}
 
 .BLOCK_SCREEN { z-index:1; background-color:rgba(0, 0, 0, 0.5); position:absolute; top:0px; left:0px; width:100%; height:100% !important; display:table; }
 .MSG_WINDOW_CONTAINER { display:table-cell; vertical-align:middle; }
-.MSG_WINDOW { font-size:95%; width:100%; padding-top: 20px; padding-bottom: 20px; color:#FFFFFF; border:2px solid; border-color:rgb(129, 129, 129); border-left:none; border-right:none; }
+.MSG_WINDOW { width:100%; padding-top: 20px; padding-bottom: 20px; color:#FFFFFF; border:2px solid; border-color:rgb(129, 129, 129); border-left:none; border-right:none; }
 
 .SLIMWIZ { font-size:90%; border-bottom-left-radius:10px; color:black; border-top: 11px solid transparent; border-left: 24px solid white; text-align:left; position:absolute; max-width:300px; background-color:transparent; display:none; z-index:1; }
 .SLIMWIZ .WIZ_CONTENT { border-bottom-left-radius:10px; border-bottom-right-radius:10px; border-top-right-radius:10px; background-color:white; padding:25px; margin-left:-24px; border-bottom:2px solid #ccc; border-right:2px solid #ccc; }
@@ -66,7 +65,7 @@ a:active {text-decoration: none}
 ._INPUT_TEXT:hover { border-color:#585676; }
 ._INPUT_TEXT input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #fff inset; }
 
-._COMBO_BOX { padding-left:5px; padding-right:5px; color:#515151; min-width: 165px; height: 31px; border: 2px solid; border-color: #CFCFCF; margin-top: 5px; margin-bottom: 5px; display: inline-block; margin-left:0px; margin-right: 4px; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
+._COMBO_BOX { padding-left:5px; color:#515151; min-width: 165px; height: 31px; border: 2px solid; border-color: #CFCFCF; margin-top: 5px; margin-bottom: 5px; display: inline-block; margin-left:0px; margin-right: 4px; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
 ._COMBO_BOX:hover { border-color:#585676; }
 
 ._CHECKBOX { min-width:20px; padding:3px 9px 3px 3px; display:inline-block; *display: inline; text-align:center; }
@@ -76,7 +75,7 @@ a:active {text-decoration: none}
 ._CHECKBOX input[type=checkbox]:checked { background-size:100%; }
 ._CHECKBOX:hover { background-color:#EBEBEB; cursor:pointer; }
 
-._TEXT_AREA { min-height:28px; border:2px solid; border-color:#CFCFCF; margin-top:5px; margin-bottom:5px; display:inline-block;  *display: inline; text-align:left; vertical-align:top; color:#515151; -webkit-user-select: none; -ms-user-select: none; outline: 0; }
+._TEXT_AREA { min-height:28px; border:2px solid; border-color:#CFCFCF; margin-top:5px; margin-bottom:5px; display:inline-block;  *display: inline; text-align:left; vertical-align:top; color:#515151; -webkit-user-select: none; -ms-user-select: none; outline: 0; padding:5px; }
 ._TEXT_AREA textarea { resize:none; overflow:auto; border:none; min-height:60px; outline-width:0; color:#515151; }
 ._TEXT_AREA select { resize:none; overflow:auto; border:none; width:100%; min-height:60px; outline-width:0; color:#515151; }
 ._TEXT_AREA:hover { border-color:#585676; }
@@ -85,10 +84,10 @@ a:active {text-decoration: none}
 ._INPUT_BUTTON:hover { cursor:pointer; border-bottom: 2px solid #ccc; }
 ._INPUT_BUTTON:active { cursor:pointer; }
 
-._WIDGET_BUTTON { font-size:100%; border:2px solid; border-color:transparent; color:white !important; width:100px; height:100px; color:#FFFFFF; margin:5px; float:none; display:inline-block;  *display: inline; text-align:left; background-repeat: no-repeat; background-position-x: 50%; background-position-y: 40%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; background-position: center 40%, center 10%; }
+._WIDGET_BUTTON { font-size:100%; border:2px solid; border-color:transparent; color:white !important; width:100px; height:100px; color:#FFFFFF; margin:5px; float:none; display:inline-block;  *display: inline; text-align:left; background-repeat: no-repeat; background-position-x: 50%; background-position-y: 40%; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 ._WIDGET_BUTTON:hover { cursor:pointer; border-color:#DFDFDF; }
 ._WIDGET_BUTTON:active { cursor:pointer; }
-._WIDGET_BUTTON label { position:relative; margin-left:10px; top:53px; font-size:75%; cursor:pointer; }
+._WIDGET_BUTTON label { position:relative; margin-left:10px; top:60px; font-size:85%; cursor:pointer; }
 
 ._RADIO { min-width:20px; padding:5px; margin-top:5px; margin-bottom:5px; display:inline-block; *display: inline; text-align:center; }
 ._RADIO label { cursor:pointer; margin-left:5px; margin-top:-2px; }
@@ -104,7 +103,6 @@ a:active {text-decoration: none}
 .COLOR_SELECTED { border: 2px solid #fff; height: 16px !important; width: 16px !important; border-radius: 10px; }
 .DATEPICKER < ._INPUT_TEXT { width:75px !important; min-width:inherit !important; }
 
-.TASKWIDGET { position:absolute; background-color:white; border:#A5A5A5 1px solid; box-shadow:rgba(34, 34, 34, 0.5) 0px 0px 10px;  }
 .METAEDITABLE { cursor:pointer; }
 .METAEDITABLE:hover { color:#3D76BC; }
 .MISSED { -webkit-user-select: none; -ms-user-select: none; outline: 0; }

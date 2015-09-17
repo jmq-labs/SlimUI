@@ -1,12 +1,3 @@
-
-$(document).ajaxStart(function(){	
-	SlimLockScr(true);
-});
-
-$(document).ajaxStop(function(e,x,s){
-	SlimLockScr(false);
-});
-
 $(document).ready(function(){	
 	$("#correo").val($(userInfo.getUserInfo())[0]['user_email']);	
 });

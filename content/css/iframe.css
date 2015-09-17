@@ -1,5 +1,5 @@
 body { background-color:#ddd !important; overflow-y:scroll; }
-body,input,textarea { font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif"; font-size:14px; }
+body,input,textarea { font-family: "Open Sans",Verdana,Arial,Helvetica,sans-serif; font-size: 13.3px; font-weight: normal; -webkit-font-smoothing: antialiased; }
 a:link { text-decoration:none; color:white; }
 a:visited { text-decoration:none; color:white; }
 a:active { text-decoration:none; color:white; }
@@ -11,6 +11,19 @@ label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none
 .E404 { font-weight: normal; font-style: normal; text-decoration: none; font-size: 36pt; color:#bbb; float:left; margin-right:20px; margin-top: 27px; }
 .P_CONTENT { background-color: rgb(233, 233, 233); padding: 16px; color: rgb(65, 65, 65); font-size: 100%; border-bottom-right-radius: 40px; border-top-right-radius: 40px; }
 .DISPLAY-BLOCK { display:inline-block; }
+
+.MULTISELECT:hover div { border-color:#585676; }
+.MULTISELECT:hover select { border-color:#585676; }
+.MULTISELECT select { width:200px;  border-bottom:none; }
+.MULTISELECT ._COMBO_BOX { margin:0px; }
+.MULTISELECT ._INPUT_TEXT { border-bottom:none; margin:0px; height:29px; width:196px;}
+.MULTISELECT ._INPUT_TEXT input { width:175px; }
+.MULTISELECT ._CHECKBOX { display:table-cell; padding:3px; }
+.MULTISELECT_CONTENT { height: 94px; overflow-y: auto; margin-top:-4px; border:2px solid #ccc; width:196px; border-top: 1px solid #ccc; }
+.MULTISELECT table { border:none; width:auto; }
+.MULTISELECT table td:nth-child(2) { width:158px; }
+.MULTISELECT table td { border:none; padding:5px; }
+.MULTISELECT input[type="submit"] { width: 200px; margin-left: 0px; margin-top: 2px; }
 .WELCOME_LABEL { color: #12A3FF; font-size: 25px; font-weight: bold; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
 
 .itemgridbutton { width: 65px; text-align: center; }
@@ -19,7 +32,7 @@ label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none
 
 .mGrid {   width:100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #ABABAB; border-collapse:collapse;}  
 .mGrid td {  padding: 7px; border: solid 1px #C1C1C1; color: #717171; word-wrap: break-word; border-style: dashed; font-size:85%; overflow:hidden; }
-.mGrid ._INPUT_BUTTON { margin-left: -5px; margin-right: -5px; margin-bottom: -5px; margin-top: -5px; border-radius:20px; }  
+.mGrid ._INPUT_BUTTON {  margin-left: -5px; margin-right: -5px; margin-bottom: -5px; margin-top: -5px; border-radius:3px; }  
 .mGrid th { padding: 4px 2px;color: #fff; background-color:#333;  font-size: 0.9em; overflow:hidden; border:none;} 
 .mGrid .alt { background: #fcfcfc  repeat-x top; }  
 .mGrid .pgr table { margin: 5px 0; }  

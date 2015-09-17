@@ -6,7 +6,8 @@ $(document).ready(function(){
 	$(".FRAME").SlimFrame();
     $(".INPUT_BUTTON").SlimButton();
 	$("#LISTSEARCH").keyup(function(){
-		$(".DIVOPTIONS").hide();
+		$("#SHOWONLINE").attr("CHECKED",false);
+		$(".DIVOPTIONS").hide();		
 		$(".TABLE .ROW").each(function(){ 
 			if(($(this).children(":eq(1)").html().toLowerCase().indexOf($("#LISTSEARCH").val().toLowerCase()) < 0) && ($("#LISTSEARCH").val() != "")){
 				$(this).hide();
@@ -17,11 +18,27 @@ $(document).ready(function(){
 			}
 		});
 	});
+	$("#SHOWONLINE").change(function(){
+		if($(this).attr("CHECKED")){
+			$(".TABLE .ROW").each(function(){
+    			if(($(this).children("td:eq(1)").html().toLowerCase().indexOf("25d41c") < 0)){
+    				$(this).hide();
+    				$(this).next().hide();
+    			}
+			});
+		}else{
+			$(".TABLE .ROW").each(function(){ 
+    			$(this).show();
+    			$(this).next().show();    			
+			});
+		}
+	});
 	showLogs();
 });
 
 function showLogs(){
   $("#LISTSEARCH").val("");
+  $("#SHOWONLINE").attr("CHECKED",false);
   $.ajax({
   	  async: false,
         url: "../../content/apps/logs/explore.php",

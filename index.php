@@ -1,13 +1,13 @@
+<?PHP if(isset($_GET['kill_session'])){ session_destroy(); } session_start(); ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-  	<?php session_start(); if(isset($_GET['kill_session'])){ session_destroy(); } require("config/config.php"); require("config/language/".LANG.".php"); ?>
-	<?php if ((strpos($_SERVER['HTTP_HOST'],'www.')===false)) { header('Location: '.WWWROOT); exit(); } ?>
+  	<?php require("config/config.php"); require("config/language/".LANG.".php"); ?>	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">	
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />		
-	<meta name="apple-mobile-web-app-title" content="SlimUI">
+	<meta name="apple-mobile-web-app-title" content="<?php print SITE_IDENTITY; ?>">
     
 	<link href="<?php print IMG_DIR.FAVICON; ?>" rel="shortcut icon">
 	<link rel="apple-touch-icon" href="<?php print IMG_DIR.IOSICON; ?>">

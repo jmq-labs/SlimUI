@@ -17,9 +17,9 @@
 #TABBT3 { float: right; margin-right: 10px !important; }
 #OBJECT_RECEIVERS { 
 position: fixed; 
-width: 800px; 
+width: 794px; 
 height: 90px; 
-margin-left:-25px; 
+ 
 border: 2px #CCC solid; 
 border-top: none; 
 border-left: none; 
@@ -73,7 +73,7 @@ body { overflow-y:scroll; }
 .PROJECT_PROGRESS { height: 35px; background-color: #DDD; line-height: 40px; text-align: center; }
 .RDIVDATA { text-align:left; }
 .RTXTDATA { width:99%; height:100px; margin-top:10px; outline:none; }
-.CORNER_TOP { border-top-left-radius: 10px; border-top-right-radius: 10px; margin-bottom:0px !important;  }
+.CORNER_TOP { border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius:0px; border-bottom-left-radius:0px; margin-bottom:0px !important;  }
 .PRIORITY_TD { width:10px; padding:0px !important; border-top-left-radius: 7; border-bottom-left-radius: 7; }
 
 .TABFRAME { border-top:2px #434343 solid; border-top-left-radius: 10px; border-top-right-radius: 10px; padding-top:5px; }
@@ -81,22 +81,24 @@ body { overflow-y:scroll; }
 .TABLIST ._INPUT_BUTTON { margin-left:0px !important; margin-right:0px !important; }
 .TURN_LEFT { left:0px; -moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); filter: FlipH; -ms-filter: "FlipH"; }
 .TURN_RIGHT { left:5px; }
-.TASK_MANAGER { vertical-align:top; text-align:center; border-radius:10px; background-color: #E6E6FA; }
-.TASK_MANAGER ._FRAME { border-radius: 10px; }
+.TASK_MANAGER { vertical-align:top; text-align:center; }
+.TASK_MANAGER #MAIN_CONTENT {  }
+.TASK_MANAGER ._FRAME { border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 0px; border-top-left-radius: 0px; margin-top:-5px; }
 .SEND_TASK { 
 vertical-align: top;
 position: fixed;
 top: 0px;
 background-color: #FFF;
-border: 1px #BBB solid;
-padding: 20px;
+border-left: 2px #CFCFCF solid;
+padding: 10px;
 margin-left: -74px;
 height: 100%;
-box-shadow: #000 15px 0px 35px;
-right: -343px;
+right: 0px;
 text-align: left;
 overflow-y:auto; }
 .SEND_TASK .TABLIST { margin-left:0px !important; text-align:center; }
+.TASKWIDGET { position:absolute; background-color:white; border:#A5A5A5 1px solid; box-shadow:rgba(34, 34, 34, 0.25) 0px 0px 10px;  }
+
 .title { color:#333; font-weight:bold; font-size:100%; }
 .title1 { color:#2C2C2C; }
 .title2 { color:#fff; font-size:110%; }

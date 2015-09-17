@@ -16,7 +16,7 @@ body { overflow-y:scroll; }
 .verify_txtbox { color:#652188; font-weight:bold; width:120; text-align:center; }
 .Idlabel {  font-weight:bold; color:#652188;}
 .label_gray { color:#3B3B3B; }
-.TABLE { border-collapse:collapse; font-size:85%; width:100% }
+.TABLE { border-collapse:collapse; font-size:90%; width:100% }
 .TABLE .TRTITLE td { font-size:110% !important; padding-top:10px; padding-bottom:10px; }
 
 .TABLE .TDOPTIONS  { max-width: 145px; }
