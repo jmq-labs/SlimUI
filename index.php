@@ -1,4 +1,4 @@
-<?PHP if(isset($_GET['kill_session'])){ session_destroy(); } session_start(); ?>
+<?PHP session_start(); error_reporting(0); if(isset($_GET['kill_session'])){ session_destroy(); session_start(); }  ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>

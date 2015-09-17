@@ -1,0 +1,67 @@
+11:56 am | Login event | Navegador: Chrome Ver. 45
+
+11:56 am | Interface handler | Show desktop
+
+11:56 am | Client Ip address | 200.59.27.180
+
+11:56 am | Input click handler | WB_calendar : Calendario
+
+11:56 am | Interface handler | Show desktop
+
+11:56 am | Input click handler | WB_logs : Logs
+
+11:56 am | Interface handler | Show desktop
+
+11:56 am | Input click handler | WB_sopit : Reportar error
+
+11:57 am | Interface handler | Show desktop
+
+11:57 am | Input click handler | WB_planner : Planner
+
+11:57 am | Input click handler | TABBT5 : Eventos
+
+11:57 am | Input click handler | TABBT4 : Proyectos
+
+11:57 am | Input click handler | TABBT2 : Archivado
+
+11:57 am | Input click handler | TABBT1 : Pendiente
+
+11:57 am | Interface handler | Show desktop
+
+11:57 am | Input click handler | WB_calendar : Calendario
+
+11:57 am | Interface handler | Show desktop
+
+11:57 am | Interface handler | Open widget : Calendario
+
+11:57 am | Interface handler | Show desktop
+
+11:57 am | Alert | Desea salir ahora?
+
+11:57 am | Alert Callback | MSG_CONFIRM_BT : Aceptar
+
+11:57 am | Window event | Close
+
+11:59 am | Login event | Navegador: Mobile Ver. 13
+
+11:59 am | Interface handler | Show desktop
+
+11:59 am | Client Ip address | 200.59.27.114
+
+1:03 pm | Login event | Navegador: Chrome Ver. 45
+
+1:03 pm | Interface handler | Show desktop
+
+1:03 pm | Client Ip address | 200.59.27.180
+
+1:03 pm | Alert | Desea salir ahora?
+
+1:03 pm | Alert Callback | MSG_CANCEL_BT : Cancelar
+
+1:03 pm | Input click handler | WB_calendar : Calendario
+
+1:03 pm | Alert | Desea salir ahora?
+
+1:03 pm | Alert Callback | MSG_CONFIRM_BT : Aceptar
+
+1:03 pm | Window event | Close

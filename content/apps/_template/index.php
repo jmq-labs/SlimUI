@@ -9,8 +9,7 @@
 		</div><br />	
 		<div class="FRAME" title="SandBox">
 			 <input type="text" />
-			 <input type="button" onclick="parent.SlimAlert('Hi!')" value="Click me!" />
-			 <input type="submit" onclick="parent.SlimAlert('Bye!')" value="Submit" />
+			 <input type="button" onclick="parent.SlimAlert('Hi!')" value="Click me!" />			 
 			 <p>
 			 <textarea></textarea>
 			 </p>
