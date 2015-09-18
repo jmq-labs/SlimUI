@@ -5,8 +5,10 @@ a:link {text-decoration: none}
 a:visited {text-decoration: none}
 a:active {text-decoration: none}
 
-.ICON_RIGHT {  background-position-x: 100%; background-repeat: no-repeat; background-position-y: 50%; background-position: 100%; }
+.ICON_RIGHT {  background-size:28px; background-repeat: no-repeat; background-position: right, center, center; }
 .ICON_LEFT { background-size:28px; background-repeat: no-repeat; background-position: left, center, center; }
+.ICON_CENTER { background-size:28px; background-repeat: no-repeat; background-position: center, center, center; }
+
 .SEPARATOR { border-left:1px solid white; display:inline-block; height:20px; position:relative; float:left; margin:0; top:10px; visibility:visible; opacity:.65; }
 
 ._MENU { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }

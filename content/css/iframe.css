@@ -4,6 +4,7 @@ a:link { text-decoration:none; color:white; }
 a:visited { text-decoration:none; color:white; }
 a:active { text-decoration:none; color:white; }
 label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+xmp { background-color:#EBEBEB; max-width: 800px; overflow-x: auto; }
 .BODY_CONTAINER { width:750px; display:inline-table; }
 ._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
 .UI_CONTENT_TEXT { padding:0px 10px 0px; text-align:justify; }
