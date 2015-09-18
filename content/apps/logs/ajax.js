@@ -1,5 +1,6 @@
 
 var logDates = new Array();
+var logStats = new Array();
 
 $(document).ready(function(){	
 	if(!parent.activeUsr){ parent.SlimAlert("No se pudo identificar el usuario, por favor cierre la sesión y vuelva a ingresar al sistema."); }
@@ -58,14 +59,14 @@ function showLogs(){
 				id = $(this).attr("logId");
 				ip = $("#LOC"+id).attr("ip");			
 				url = "http://freegeoip.net/json/"+ip;
-				if(ip != "No disponible"){
+				if(ip != "N/A"){
     				$.getJSON(url, function(data){
     					var loc = data.city;
-						if(!loc){ loc = "No disponible"; }
+						if(!loc){ loc = "N/A"; }
 						$("#LOC"+id).html(loc);   									 
     				});
 				}else{ 
-					   	loc = "No disponible";
+					   	loc = "N/A";
 						$("#LOC"+id).html(loc);				   
 				}				
 			});
@@ -92,7 +93,9 @@ function showLogs(){
 		  }	
         }
       });  
-	  
+	  $("#archivesize").html(logStats['filesize']);
+	  $("#onlinecount").html(logStats['usonline']);
+	  $(".LOGBT").SlimButton();
   }).fail(function(){ 
   	  parent.SlimAlert("Hubo un error al solicitar la informacion, porfavor intente de nuevo.");
   });
