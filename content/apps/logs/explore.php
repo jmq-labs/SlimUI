@@ -1,6 +1,6 @@
 <?php
-session_start();
 error_reporting(0);
+session_start();
 $count = 0;
 $archivSize = 0;
 $onlinecount = 0;
@@ -16,14 +16,14 @@ while($it->valid()) {
 	if (!$it->isDot()) {
     if ( @$count++ & 1 ) { $tr = ""; }else{ $tr = "TDODD";  }	
 	echo "<tr class='ROW ".$tr."'>";		
-		$new_str_nav = "Desconocido";
-		$new_str_ip = "No disponible";		
+		$new_str_nav = "?";
+		$new_str_ip = "N/A";		
 		$lastFile ="";
 		$lastdate = 0;
-		$lastmodify = "No disponible";
+		$lastmodify = "?";
 		$totalSize = 0;
 		$itemcount = 0;
-		$location = "No disponible";
+		$location = "?";
 		$searchSname = "User session name";	
 		$searchNav = "Login event | Navegador";
 		$searchIp = "Client Ip address";		
@@ -33,10 +33,11 @@ while($it->valid()) {
 		<script>		 	
         	logDates[<?php echo $count; ?>] = new Array(); 
         </script><?php		
-		while($file->valid()) {			
+		while($file->valid()) {		
+		    $s = array("%5C","%2F");	
 			if (!$file->isDot()) { ?>		   			   	
          	   <script>		 	
-         			logDates[<?php echo $count; ?>]['<?php echo substr(utf8_encode($file->getSubPathname()),0,8); ?>'] = "<?php print rawurlencode($file->key()); ?>"; 
+         			logDates[<?php echo $count; ?>]['<?php echo substr(utf8_encode($file->getSubPathname()),0,8); ?>'] = "<?php print str_replace($s,'/',rawurlencode($file->key())); ?>"; 
          	   </script>	   			
 			<?php }			
 						
@@ -49,10 +50,10 @@ while($it->valid()) {
 		}			
 		if($lastmodify > strtotime("-5 minutes",time())){ 
 				$bullet = "<font color='#25D41C' size='3'><b>|</b></font>";
-				$status = " En linea"; $onlinecount++;                     
+				$status = "Online"; $onlinecount++;                     
 			}else{ 
 				$bullet = "<font color='#D41E1E' size='3'><b>|</b></font>";
-				$status = " Sin actividad"; 
+				$status = "Offline"; 
 		}		
         $lines = file($lastFile);
         foreach($lines as $line){
@@ -72,21 +73,24 @@ while($it->valid()) {
        	if(@$_SESSION['_ISMOBILE'] && @$_SESSION['_ISMOBILE']!="true"){
 			echo "<td class='TD1'>".round((($totalSize)/1024))." KB</td><td class='TD1'>".$itemcount."</td>";
        	}
-		echo "<td class='TD3'><input id='BT".$count."' class='_INPUT_BUTTON LOGBT' value='Ver' type='button' logId='".$count."' ></td>"		
+		echo "<td class='TD3'><input id='BT".$count."' class='LOGBT ICON_CENTER' icon='../../content/apps/logs/img/triangle-down.png' type='button' logId='".$count."' ></td>"		
        		."<tr><td></td><td class='TDOPTIONS' colspan='4'><div id='ROW".$count."' class='DIVOPTIONS' >"
        		."<div logId='".$count."' class='datepicker' ></div>"		
-			."<table class='LOGINFO' cellpadding='2px'><tr><td><b>Actividad:</b></td><td>".$status."</td></tr>"
+			."<table class='LOGINFO' cellpadding='2px'><tr><td><b>Status:</b></td><td>".$status."</td></tr>"
 			."<tr><td colspan='3'><hr /></td></tr>"			 
-			."<tr><td><b>Navegador:</b></td><td>".$new_str_nav."</td></tr>"
-			."<tr><td><b>Dirección Ip:</b></td><td>".$new_str_ip."</td></tr>"
-			."<tr><td><b>Localidad:</b></td><td><div id='LOC".$count."' ip='".$new_str_ip."'></div></td></tr>"
-			."<tr><td><b>Ultima sesión:</b></td><td>".date("d-m-Y g:i a",$lastmodify)."</td></tr></table>"			 
+			."<tr><td><b>Browser:</b></td><td>".$new_str_nav."</td></tr>"
+			."<tr><td><b>Ip address:</b></td><td>".$new_str_ip."</td></tr>"
+			."<tr><td><b>Location:</b></td><td><div id='LOC".$count."' ip='".$new_str_ip."'></div></td></tr>"
+			."<tr><td><b>Last session:</b></td><td>".date("d-m-Y g:i a",$lastmodify)."</td></tr></table>"			 
 			."</div></td></tr>";		
     echo "</tr>";	
 	}
-    
+    ?>
+    	<script>		 	
+      		logStats['filesize'] = "<?php echo number_format((($archivSize)/1024)/1024,2,'.',''); ?>";
+    		logStats['usonline'] = "<?php echo $onlinecount; ?>"; 
+    	</script>	
+	<?php
 	$it->next();	
 }
-echo "</table><hr /><p><label><b>Tamaño de la carpeta: </b>".number_format((($archivSize)/1024)/1024,2,'.','')." Mb</label>"
-	 ."<label style='float:right'><b>Usuarios en linea:</b> ".$onlinecount."</label></p>";
 ?>
