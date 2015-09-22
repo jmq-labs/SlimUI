@@ -29,7 +29,7 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
 	            	 	
                         <?php if(@$DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_USER; ?>:</label><?php } ?>
                         <div class="_INPUT_TEXT">
-                        <input id="username" name="username" autocapitalize="off" placeholder="<?php if(@$DEVICE_TYPE != "MOBILE"){ echo LANG_LOGIN_PLCHOLDER_USERNAME; }else{ echo LANG_LOGIN_USER; } ?>" style="min-width:170px" />
+                        <input id="username" name="username" autocapitalize="off" spellcheck="false" placeholder="<?php if(@$DEVICE_TYPE != "MOBILE"){ echo LANG_LOGIN_PLCHOLDER_USERNAME; }else{ echo LANG_LOGIN_USER; } ?>" style="min-width:170px" />
 	                    </div><br>
 	                    
                         <?php if(@$DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_PASSWORD; ?>:</label><?php } ?>

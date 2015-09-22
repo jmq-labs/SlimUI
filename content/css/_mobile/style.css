@@ -6,6 +6,7 @@ body {
      margin:0; 
      overflow:hidden;         
 }
+body,input,textarea { font-family:"Open Sans",Verdana,Arial,Helvetica,sans-serif; -webkit-font-smoothing: antialiased; font-size:14px; }
 label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 ._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
 

@@ -25,7 +25,7 @@ xmp { background-color:#EBEBEB; max-width: 800px; overflow-x: auto; }
 .MULTISELECT table td:nth-child(2) { width:158px; }
 .MULTISELECT table td { border:none; padding:5px; }
 .MULTISELECT input[type="submit"] { width: 200px; margin-left: 0px; margin-top: 2px; }
-.WELCOME_LABEL { color: #12A3FF; font-size: 25px; font-weight: bold; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
+.WELCOME_LABEL { color: #12A3FF; font-size: 25px; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
 
 /* jQuery Overrides */
 
