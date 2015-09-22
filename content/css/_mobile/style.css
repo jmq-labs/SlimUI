@@ -6,7 +6,6 @@ body {
      margin:0; 
      overflow:hidden;         
 }
-body,div,span,table,input,textarea { font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif"; font-size:1em; }
 label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
 ._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
 
