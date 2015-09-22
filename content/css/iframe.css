@@ -27,6 +27,8 @@ xmp { background-color:#EBEBEB; max-width: 800px; overflow-x: auto; }
 .MULTISELECT input[type="submit"] { width: 200px; margin-left: 0px; margin-top: 2px; }
 .WELCOME_LABEL { color: #12A3FF; font-size: 25px; font-weight: bold; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
 
+/* jQuery Overrides */
+
 .itemgridbutton { width: 65px; text-align: center; }
 .itemgridbutton input { min-width:75px; }
 .itemgrid {max-width:65px;}
