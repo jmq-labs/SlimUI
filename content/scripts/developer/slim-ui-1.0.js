@@ -1,14 +1,14 @@
 /*********************************************************************/
 /*                                                                   */
 /*                           Slim UI 1.0                             */
-/*                        by Jose M. Quiroz                          */
+/*                        by Jose Salinas                            */
 /*                            2013-05-09                             */
 /*                                                                   */
 /*                   Dependencies:   jQuery 1.9.1                    */
 /*                                   jQuery UI 1.10                  */
 /*                                                                   */
 /*                     ...Here, take my code!                        */
-/*                      Twitter: @josemq2000						 */
+/*                      Twitter: @slimui    						 */
 /*                                                                   */
 /*********************************************************************/
 
@@ -37,7 +37,7 @@ $.fn.SlimMenu = function(o,s){
 				var divTitle = "<div class='MENU_LIST_TITLE _VOID'>" + $(this).contents().get(0).nodeValue; + "</div>";
 			}
 			$(this).append("<div class='MENU_LIST'>" + divTitle + "</div>");    		
-			$(this).children(".MENU_LIST").append($(this).children("span, hr"));
+			$(this).children(".MENU_LIST").append($(this).children());
     		$(this).click(function(e){
     		$(".MENU_LIST").hide("fade",100); 
     			if(e.target.nodeName!="SPAN"){ 

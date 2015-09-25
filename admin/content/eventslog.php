@@ -1,1 +1,0 @@
-<div class="FRAME" title="Events log"></div>

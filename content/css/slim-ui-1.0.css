@@ -17,6 +17,7 @@ a:active {text-decoration: none}
 ._MENU .MENU_LIST ._INPUT_BUTTON { padding-left:30px; min-width:100px; height:inherit; display:list-item; list-style-type:none; margin:0px; list-style:'none'; background-color:white; color:black; text-align:left; }
 ._MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; border-bottom: 2px solid transparent; }
 ._MENU .MENU_LIST hr { margin:0px; }
+._MENU .MENU_LIST label, h1, h2, h3, h4, h5 { color:#000; margin:7px; }
 ._MENU .MENU_LIST_TITLE { position: absolute; height:18px; background-color: white; color: black; top: -40px; padding: 10px 15px 10px 15px; border: 2px solid #444; left: -2px; border-bottom: none; font-weight: bold; overflow: hidden; max-width: 115px; text-overflow: ellipsis;  white-space: nowrap; }
 
 ._CONTEXT_MENU { display:inline-block; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
