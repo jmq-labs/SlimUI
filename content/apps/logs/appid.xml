@@ -3,10 +3,10 @@
 <catalog>
 	<app>
 		<appname>logs</appname>
-		<icon>app-logo6.png</icon>
+		<icon>img/app-logo.png</icon>
 		<title>Logs</title>
 		<default>index.php</default>
-		<color></color>
+		<color>#404040</color>
 		<style>float:right</style>	
 		<asp></asp>			
 	</app>

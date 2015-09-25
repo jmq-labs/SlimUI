@@ -3,10 +3,10 @@
 <catalog>
 	<app>
 		<appname>demoapp</appname> 	  <!-- must be simple plain text without spaces or special characters. -->
-		<icon>app-logo3.png</icon> 	  <!-- from img folder. -->
+		<icon>img/app-logo.png</icon> <!-- from app img folder. -->
 		<title>Demo App</title>		  <!-- main app title -->
 		<default>index.php</default>  <!-- default document to be loaded, like 'index.php'. -->
-		<color>#006353</color>		  <!-- app color for the main icon button -->
+		<color>#308AB5</color>		  <!-- app color for the main icon button -->
 		<hidden></hidden> 	  		  <!-- set it 'true' if you want your app to be hidden -->
 		<asp></asp> 				  <!-- if you app is [ .asp ; .aspx ], place 'true' value here -->
 		<style></style>				  <!-- app button custom style -->
