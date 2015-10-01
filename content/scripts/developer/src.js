@@ -1,5 +1,5 @@
-var WHid = 1; var activeUsr = ""; var CurrentFrame = 0; var _safeMode; var _key; var _confirmCallback = false; var cookie_data = ""; 
-var loginFrame = "<iframe id='MAIN0' class='MAIN MAIN_DIV' pid='0' onload='ShowDOM(this)' src='config/system/master.php?page=login.php&auth=true' ></iframe>";
+var WHid = 1; var activeUsr = ""; var CurrentFrame = 0; var _safeMode; var _key; var _confirmCallback = false; var cookie_data = "";
+var loginFrame = "<iframe id='MAIN0' class='MAIN MAIN_DIV' pid='0' onload='ShowDOM(this)' src='config/system/master.php?uqid="+UQID+"&page=login.php&auth=true' ></iframe>";
 
 $(function(){
 	$("body").append(loginFrame);			
@@ -58,7 +58,7 @@ $(function(){
 function go(url){
 	$.when($(".MENU_LIST").hide("fade",100)).done(function(){ 
     	var appfolder = "";
-    	var source_url = "config/system/master.php?page=../";
+    	var source_url = "config/system/master.php?uqid="+UQID+"&page=../";
     	if($("#MAIN"+CurrentFrame).attr("folder")){ appfolder = $("#MAIN"+CurrentFrame).attr("folder"); }
     	var app_dir = source_url + appfolder;
     	if($("#MAIN"+CurrentFrame).attr("isasp")){ url += "&asp=true"; }
@@ -80,7 +80,7 @@ function setSession(name,token){
                 url: "config/api.php",
                 dataType: "json",
 				cache: false,
-          	  	data: { userinfo: "true" },
+          	  	data: { userinfo: "true", uqid: UQID },
           	  	async: false,
                 success : function(data) {
                           json[0] = data;
@@ -91,7 +91,7 @@ function setSession(name,token){
                 url: "config/api.php",
                 dataType: "json",
 				cache: false,
-          	  	data: { cookiedata: "true" },
+          	  	data: { cookiedata: "true", uqid: UQID },
           	  	async: false,
                 success : function(data) {
                           json[1] = data;
@@ -104,7 +104,7 @@ function setSession(name,token){
         })();
 		
 		activeUsr = name; displayName = activeUsr;
-		_key = $(api_session.getUserInfo())[0][FILTER_BY];
+		if(FILTER_BY){ _key = $(api_session.getUserInfo())[0][FILTER_BY]; }
 		var img_container = "<img class='USER_PROFILE_IMG' src='content/themes/"+THEME+"/img/profile-picture.png' /><div class='SEPARATOR'></div>";
     	var name_container = "<div><label id='USER_NAME' ></label><br /><a id='SESSION_OFF'>"+LANG_MAIN_CLOSESESSION+"</a></div>";
 		if(DEVICE_TYPE=="MOBILE"){ 
@@ -131,7 +131,7 @@ function setSession(name,token){
     	    });
     	});
 		
-		$("#WIDGET_MENU").load("config/appsmenu.php",function(){
+		$("#WIDGET_MENU").load("config/appsmenu.php?uqid="+UQID,function(){
     		$("#MAIN_MENU").SlimMenu();
     		$(".WIDGET_BUTTON").SlimButton("Big");    				
     		$(".FRAME").SlimFrame();
@@ -170,7 +170,7 @@ function ShowDOM(e,safeMode){
 	CurrentFrame = $(e).attr("pid");
 	$(".MAIN_DIV").css("height", window.innerHeight-$("#MAIN_MENU").outerHeight());	
 	if(safeMode==true && $(e).attr("isasp")){	                                                                 
-       $.get("config/system/master.php?getheaders=true", function(data){  $("#MAIN" + CurrentFrame).contents().find("head").append(data); });	   	   
+       $.get("config/system/master.php?getheaders=true&uqid="+UQID, function(data){  $("#MAIN" + CurrentFrame).contents().find("head").append(data); });	   	   
 	   $("#MAIN" + CurrentFrame).contents().find('body').hide();
 	   function loadScript(url, callback){
             var script = document.createElement("script")
@@ -219,6 +219,7 @@ function ShowDOM(e,safeMode){
 					var count = $("display_menu_filters", xml).children().length;
 					var obj = $("display_menu_filters", xml).children();										
 					for(i=0; i < count; i++){						
+						
 						var keys = obj[i].childNodes[0].data.split(",");
 						if(keys.indexOf(_key)==-1){
 							$("#"+obj.get(i).tagName).remove();
@@ -235,13 +236,14 @@ function ShowDOM(e,safeMode){
 }
 
 function NewDOM(e,i,safeMode){
-	var _url = $(e).attr("url");
+	var _url = $(e).attr("url")+"&uqid="+UQID;
 	if(!safeMode){ if(_safeMode){ safeMode = true; } if($(e).attr("safemode")){ safeMode = true; } }
 	if(safeMode == true && $(e).attr("isasp")){ _url = $(e).attr("url").substr("36").replace("&asp=true",""); }	
 	if(e.tagName!="LABEL"){    	
     	if(i){			    		
 			var NewFrame = $("<iframe/>", {                    
                id:		   "MAIN" + i,
+			   uqid:	   UQID,
 			   Class:	   "MAIN MAIN_DIV",
 			   pid:		   i,
 			   appname:	   $(e).attr("appname"),

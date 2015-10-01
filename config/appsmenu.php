@@ -1,7 +1,7 @@
 <?php session_start(); include('config.php'); ?>
 <div id="MAIN_WIDGET_MENU" style="padding:25px;" >
 <?php
-if($_SESSION['uid']){
+if($_SESSION['username']){
 $directory = "../content/apps/";
 $it = new RecursiveDirectoryIterator($directory);
   while($it->valid()){    

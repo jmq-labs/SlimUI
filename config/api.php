@@ -1,9 +1,8 @@
 <?php
-session_start();
-require_once('conn.php');
+session_start(); 
 header('Content-type: application/json; charset=utf-8');
 
-if(@$_SESSION['uid']){
+if(@$_SESSION['username']){
   /*************************************************************************************************************/
   if(isset($_GET['cookiedata'])){
   	$data = array();	
@@ -17,7 +16,8 @@ if(@$_SESSION['uid']){
   /*************************************************************************************************************/
   if(isset($_GET['userinfo'])){
   	$data['userinfo'] = array();
-	$data['userinfo']['userid'] 		  = @$_SESSION['uid'];	
+	$data['userinfo']['user_id'] 		  = @$_SESSION['uid'];	
+	$data['userinfo']['user_name'] 		  = @$_SESSION['username'];	
 	$data['userinfo']['user_displayname'] = @$_SESSION['user_displayname'];
 	$data['userinfo']['user_department']  = @$_SESSION['user_department'];
 	$data['userinfo']['user_email']		  = @$_SESSION['user_email'];
@@ -27,14 +27,16 @@ if(@$_SESSION['uid']){
 	echo json_encode($out);
   }
   /*************************************************************************************************************/    
-  if(isset($_GET['dmusers'])){
-    ldap_set_option(@$ds, LDAP_OPT_PROTOCOL_VERSION, 3);
+  if(isset($_GET['dmusers']) AND LDAPAUTH=='true'){
+    require("config.php");
+    
+	ldap_set_option(@$ds, LDAP_OPT_PROTOCOL_VERSION, 3);
     ldap_set_option(@$ds, LDAP_OPT_REFERRALS, 0);
     
     $ldap_server = AD_SERVER_ADDRESS;
-    $auth_user = AUTH_USER;
-    $auth_pass = AUTH_PASS;
-    $base_dn = BASE_DN;
+    $auth_user = $_SESSION['username']."@".LDAP_DN;
+    $auth_pass = $_SESSION['ldappass'];
+    $dc = explode('.', LDAP_DN); $base_dn = "dc=".$dc[0].",dc=".$dc[1];
     $filter = "(&(givenName=".@$_GET['q']."*)(objectClass=user)(objectCategory=person)(cn=*))";
     
     if (!($connect=ldap_connect($ldap_server))) {

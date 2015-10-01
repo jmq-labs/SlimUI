@@ -6,7 +6,7 @@
 		<icon>img/app-logo.png</icon>
 		<title>Logs</title>
 		<default>index.php</default>
-		<color>#404040</color>
+		<color></color>
 		<style>float:right</style>	
 		<asp></asp>			
 	</app>

@@ -1,7 +1,6 @@
 <?php 
-session_start();
 if(isset($_SESSION['token'])){ 
-	if($_SESSION['token'] != md5(utf8_encode(TOKENSTR)+$_SESSION['uid'])){
+	if($_SESSION['token'] != md5(TOKENSTR + $_SESSION['uid'])){
 		unset($_SESSION['token']);
 		header('Location: master.php?page=login.php&code=e0Token', true, 302);
 		exit;

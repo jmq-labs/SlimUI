@@ -1,4 +1,4 @@
-<?php session_start(); if(@$_SESSION['keepsession']){ header('Location: master.php?page=token.php'); } ?>
+<?php if(@$_SESSION['keepsession']){ header('Location: master.php?uqid='.$UQID.'&page=token.php'); } ?>
 <script>
 var LANG_LOGIN_ERRCODEAUTH0 = "<?php print LANG_LOGIN_ERRCODEAUTH0; ?>";
 var LANG_LOGIN_ERRCODEAUTH1 = "<?php print LANG_LOGIN_ERRCODEAUTH1; ?>";
@@ -7,8 +7,8 @@ var LANG_LOGIN_ERRCODEAUTH2 = "<?php print LANG_LOGIN_ERRCODEAUTH2; ?>";
 var LANG_TOKEN_E0 = "<?php print LANG_TOKEN_E0; ?>";
 var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
 </script>
-<input type="hidden" name="redirectFail" value="system/master.php?page=login.php&auth=true" />
-<input type="hidden" name="redirectPass" value="system/master.php?page=token.php" />
+<input type="hidden" name="redirectFail" value="system/master.php?uqid=<?php print $UQID; ?>&page=login.php&auth=true" />
+<input type="hidden" name="redirectPass" value="system/master.php?uqid=<?php print $UQID; ?>&page=token.php" />
 <div class="CONTENT">     
 	<div class="BODY_CONTAINER">
     	<?php if(MAINTENANCE_MODE=='true'){ ?>
@@ -29,7 +29,7 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
 	            	 	
                         <?php if(@$DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_USER; ?>:</label><?php } ?>
                         <div class="_INPUT_TEXT">
-                        <input id="username" name="username" autocapitalize="off" spellcheck="false" placeholder="<?php if(@$DEVICE_TYPE != "MOBILE"){ echo LANG_LOGIN_PLCHOLDER_USERNAME; }else{ echo LANG_LOGIN_USER; } ?>" style="min-width:170px" />
+                        <input id="username" name="username" autocapitalize="off" spellcheck="false" autocorrect="off" placeholder="<?php if(@$DEVICE_TYPE != "MOBILE"){ echo LANG_LOGIN_PLCHOLDER_USERNAME; }else{ echo LANG_LOGIN_USER; } ?>" style="min-width:170px" />
 	                    </div><br>
 	                    
                         <?php if(@$DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_PASSWORD; ?>:</label><?php } ?>
