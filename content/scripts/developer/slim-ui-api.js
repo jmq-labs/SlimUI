@@ -5,7 +5,7 @@ var userInfo = (function(){
         type: "GET",
         url: "../../config/api.php",
         dataType: "json",
-  	  	data: { userinfo: "true" },
+  	  	data: { userinfo: "true", uqid: parent.UQID },
   	  	async: false,
         success : function(data) {
                   json = data;
@@ -22,7 +22,7 @@ var dmUsers = (function(){
         type: "GET",
         url: "../../config/api.php",
         dataType: "json",
-  	  	data: { dmusers: "true" },
+  	  	data: { dmusers: "true", uqid: parent.UQID },
   	  	async: true,
         success : function(data) {
                   json = data;
@@ -41,7 +41,7 @@ var userTasks = (function(){
             type: "POST",				
             url: "../../config/api.php",
             dataType: "json",
-      		data: { usertasks: "true" },
+      		data: { usertasks: "true", uqid: parent.UQID },
       	  	async: o,
             success : function(data) {
                       json = data;
@@ -53,7 +53,7 @@ var userTasks = (function(){
             type: "POST",				
             url: "../../config/api.php",
             dataType: "json",
-      		data: { updateusertask: "true", id: id, col: col, val: val },
+      		data: { updateusertask: "true", id: id, col: col, val: val, uqid: parent.UQID },
       	  	async: true,
             success : function(data) {
                       respond = data;

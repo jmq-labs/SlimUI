@@ -1,4 +1,4 @@
-<?PHP session_start(); error_reporting(0); if(isset($_GET['kill_session'])){ session_destroy(); session_start(); }  ?>
+<?PHP session_start(); error_reporting(0); if(isset($_GET['kill_session'])){ session_destroy(); session_start(); } $UQID = uniqid(); ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -18,6 +18,7 @@
 	<title><?php print SITE_NAME; ?></title>
 	 
     <script>
+	var UQID = "<?php print $UQID; ?>";
   	var IMG_DIR = "<?php print IMG_DIR; ?>";
 	var THEME = "<?php print THEME; ?>";
 	var WWWROOT = "<?php print WWWROOT; ?>";

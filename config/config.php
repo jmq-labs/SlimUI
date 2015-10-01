@@ -1,8 +1,10 @@
 <?php
 $cookie_data = array(); $display_filters = array(); $UA = $_SERVER['HTTP_USER_AGENT'];
+if(isset($_GET['uqid'])){ $UQID = @$_GET['uqid']; }
+if(isset($_POST['uqid'])){ $UQID = @$_POST['uqid']; }
 if(stristr($UA, "Mobile")){ $DEVICE_TYPE = "MOBILE"; }
-if(!@$_SESSION['CWD']){$_SESSION['CWD'] = getcwd(); }
-$settings = simplexml_load_file($_SESSION['CWD'].'/slimui.config');
+if(!@$_SESSION[@$UQID.'CWD']){$_SESSION[@$UQID.'CWD'] = getcwd(); }
+$settings = simplexml_load_file($_SESSION[@$UQID.'CWD'].'/slimui.config');
 
 foreach($settings[0]->config as $key => $value)
 {    

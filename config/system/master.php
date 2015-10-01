@@ -2,8 +2,7 @@
 	if(@$_GET['getheaders']){  ?>	
 	<?php require("../../config/config.php"); require("../../config/language/".LANG.".php"); ?>
 	<?php if(isset($DEVICE_TYPE) AND $DEVICE_TYPE=="MOBILE" AND MOBILE_ENABLED=="true"){ ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>	
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_fonts/opensans.css" />	
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/themes/<?php echo THEME; ?>/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/jquery-ui-1.10.0.custom.min.css" />
@@ -13,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/plugins/mask/qunit-1.11.0.css" />	
 	<?php }else{ ?>
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_fonts/opensans.css" />
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/themes/<?php echo THEME; ?>/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/jquery-ui-1.10.0.custom.min.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/slim-ui-1.0.css" />
@@ -40,7 +38,7 @@
 	<link rel="stylesheet" type="text/css" href="../../content/css/iframe.css" />
 	<?php } ?>
 	
-	<script> 
+	<script>		 
 		var code = "<?php if(isset($_GET['code'])){ print $_GET['code']; } ?>"; 
 		var isAsp = "<?php if(isset($_GET['asp'])){ print $_GET['asp']; } ?>";
 		var postback = "<?php if(isset($_GET['postback'])){ print $_GET['postback']; } ?>";
@@ -66,7 +64,7 @@
 </head>
 <body>    
 	<?php if(@$_GET['auth']==true){ ?>
-	<form id="form1" action="../../config/auth.php" method="post" ><?php } ?>	
+	<form id="form1" action="../../config/auth.php?uqid=<?php print @$UQID; ?>" method="post" ><?php } ?>	
       <div id="INCLUDE_FRAME">
   		<?php if(!@$_GET['asp']){ include(@$_GET['page']); }?>
       </div>
