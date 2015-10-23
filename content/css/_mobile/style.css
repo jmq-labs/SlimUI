@@ -30,8 +30,11 @@ label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none
 .HISTORY_WIDGET .HWIDGET_REMOVE img { width:11px; }
 .HISTORY_WIDGET .HWIDGET_REMOVE img:hover { opacity:0.5; }
 .HISTORY_WIDGET .HWIDGET_REMOVE img:active { -webkit-filter: invert(90%); filter: invert(90%); }
+.NOTIFICATION_WIDGET .NOTIF_TXT { color: white; width: 100%; height: 86px; text-align:center; }
+.NOTIFICATION_WIDGET .HWIDGET_REMOVE { margin-top:-110px; }
+.NOTIFICATION_WIDGET label { top:10px; margin-left:auto; }
 
-.HISTORY_WIDGET:hover .HWIDGET_REMOVE { display:inline !important; }
+.HISTORY_WIDGET:hover .HWIDGET_REMOVE { display:inline-block !important; }
 .HWIDGET_REMOVE:hover { color:#313131; }
 .HWIDGET_PID { top: 76px !important; opacity: 0.6; left: 155px; }
 

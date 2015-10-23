@@ -1,4 +1,4 @@
-<Files "slimui.config">
+<Files "slim-ui.config">
         Order Deny,Allow
         Deny from all
         Allow from localhost

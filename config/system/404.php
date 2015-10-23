@@ -1,7 +1,3 @@
-﻿
-
-<asp:Content ID="Content1" runat="server" contentplaceholderid="ContentPlaceHolder1">
-         
  <div class="CONTENT">
   <div class="BODY_CONTAINER">
     <div class="FRAME">
@@ -13,5 +9,3 @@
      </div>	   
 </div>
 </div>
-  
-  </asp:Content>

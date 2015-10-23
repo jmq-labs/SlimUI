@@ -18,6 +18,9 @@
 	<title><?php print SITE_NAME; ?></title>
 	 
     <script>
+	var VERSION = "<?php print VERSION; ?>";
+	var BUILD = "<?php print BUILD; ?>";
+	var UPDATE_SERVER = "<?php print UPDATE_SERVER; ?>";
 	var UQID = "<?php print $UQID; ?>";
   	var IMG_DIR = "<?php print IMG_DIR; ?>";
 	var THEME = "<?php print THEME; ?>";
@@ -31,7 +34,8 @@
   	var LANG_MAIN_CLOSESESSIONMSGBTY = "<?php print LANG_MAIN_CLOSESESSIONMSGBTY; ?>";
   	var LANG_MAIN_CLOSESESSIONMSGBTN = "<?php print LANG_MAIN_CLOSESESSIONMSGBTN; ?>";
 	var LANG_LOGIN_BROWSER_COMP = "<?php print LANG_LOGIN_BROWSER_COMP; ?>";
-	var LANG_SAFEMODE_ALERT = "<?php print LANG_SAFEMODE_ALERT; ?>";	
+	var LANG_SAFEMODE_ALERT = "<?php print LANG_SAFEMODE_ALERT; ?>";
+	var LANG_SOFT_UPDATE_NEWUPD = "<?php print LANG_SOFT_UPDATE_NEWUPD; ?>";
 	</script>
 	   
 	<script type="text/javascript" src="content/scripts/jquery/jquery-1.11.2.min.js"></script>

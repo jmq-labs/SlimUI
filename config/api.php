@@ -1,5 +1,6 @@
 <?php
-session_start(); 
+session_start();
+require("config.php");
 header('Content-type: application/json; charset=utf-8');
 
 if(@$_SESSION['username']){
@@ -15,21 +16,19 @@ if(@$_SESSION['username']){
   }
   /*************************************************************************************************************/
   if(isset($_GET['userinfo'])){
-  	$data['userinfo'] = array();
+	$data['userinfo'] = array();
 	$data['userinfo']['user_id'] 		  = @$_SESSION['uid'];	
 	$data['userinfo']['user_name'] 		  = @$_SESSION['username'];	
 	$data['userinfo']['user_displayname'] = @$_SESSION['user_displayname'];
 	$data['userinfo']['user_department']  = @$_SESSION['user_department'];
 	$data['userinfo']['user_email']		  = @$_SESSION['user_email'];
 	$data['userinfo']['user_title']		  = @$_SESSION['user_title'];
-	
+	if($_SESSION['DEV_PRESENT']){ $data['userinfo']['dev_user'] = true; }else{ $data['userinfo']['dev_user'] = false; }	
 	$out = array_values($data);
 	echo json_encode($out);
   }
   /*************************************************************************************************************/    
-  if(isset($_GET['dmusers']) AND LDAPAUTH=='true'){
-    require("config.php");
-    
+  if(isset($_GET['dmusers']) AND LDAPAUTH=='true'){    
 	ldap_set_option(@$ds, LDAP_OPT_PROTOCOL_VERSION, 3);
     ldap_set_option(@$ds, LDAP_OPT_REFERRALS, 0);
     

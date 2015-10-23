@@ -1,4 +1,4 @@
-<?php if(@$_SESSION['keepsession']){ header('Location: master.php?uqid='.$UQID.'&page=token.php'); } ?>
+<?php error_reporting(0); if(@$_SESSION['keepsession']){ header('Location: master.php?uqid='.$UQID.'&page=token.php'); } ?>
 <script>
 var LANG_LOGIN_ERRCODEAUTH0 = "<?php print LANG_LOGIN_ERRCODEAUTH0; ?>";
 var LANG_LOGIN_ERRCODEAUTH1 = "<?php print LANG_LOGIN_ERRCODEAUTH1; ?>";
@@ -20,12 +20,11 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
         <div class="_FRAME" title="">	
              <div id="_DIVLOGINFRM" style="float: right;width: 399px;">
                 <div style="text-align:center;">
-                <p><?php if(LOGIN_TOP_IMAGE){ ?><img src="../../<?php print IMG_DIR.LOGIN_TOP_IMAGE; ?>" style="margin-botton:10px;"><?php }else{ ?>
-					<label class="WELCOME_LABEL"><?php print LANG_LOGIN_WELCOME; ?></label><?php } ?>
-				</p>
-                <br/>
+                <?php if(LOGIN_TOP_IMAGE){ ?><img src="../../<?php print IMG_DIR.LOGIN_TOP_IMAGE; ?>" style="max-height:110px;"><?php }else{ ?>
+					<label class="WELCOME_LABEL"><?php print LANG_LOGIN_WELCOME; ?></label><?php } ?>				
                 </div>
-                <div class="_FRAME" title="" style="margin-top: 10px;"><label class="CONTENT_TITLE"><?php echo LANG_LOGIN_TITLE; ?></label>
+				<br />
+                <div class="_FRAME" title=""><label class="CONTENT_TITLE"><?php echo LANG_LOGIN_TITLE; ?></label>
 	            	 	
                         <?php if(@$DEVICE_TYPE != "MOBILE"){ ?><label class="INPUT_LABEL"><?php echo LANG_LOGIN_USER; ?>:</label><?php } ?>
                         <div class="_INPUT_TEXT">
@@ -50,14 +49,15 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
                                 
        <div id="_DIVIMG1" style="width:300px; float:left; background-repeat:no-repeat;  background-image:url('../../<?php print IMG_DIR.LOGIN_LEFT_IMAGE; ?>');float: left;">
 		 <div style="width:100%; height:250px;"></div>		
-		     <div class="_BKGSTYLE1" style="width:100%; padding-top:10px; border-bottom-left-radius:10px; border-bottom-right-radius:10px; ">
-                  <div class="_FRAME _BKGSTYLE1" style="margin-top: 10px;" title="">
+		     <div class="_BKGSTYLE1" style="width:100%; padding-top:10px; border-bottom-left-radius:10px; border-bottom-right-radius:10px; ">                  
+				  <div class="_FRAME _BKGSTYLE1" style="margin-top: 10px;" title="">
                       <label class="CONTENT_TITLE"><?php echo LANG_LOGIN_ACCT1; ?></label><?php echo LANG_LOGIN_ACCT2; ?>
 	    	          <p>
                       <input type="button" ID="REQUESTACC" style="float:right;" class="_INPUT_BUTTON" onclick="parent.go('<?php echo MORE_INFO_LINK; ?>')" value="<?php echo LANG_LOGIN_ACCT3; ?>" />
 		          	  </p>
 				  </div>		
 		    </div>
+			<label style="position: absolute; margin-left: 650px; margin-top: -15px; color:#aaa; font-size: 90%; ">Ver. <?php print VERSION; ?></label>
        	</div>
    	  </div>            
    </div>        
