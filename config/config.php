@@ -4,7 +4,7 @@ if(isset($_GET['uqid'])){ $UQID = @$_GET['uqid']; }
 if(isset($_POST['uqid'])){ $UQID = @$_POST['uqid']; }
 if(stristr($UA, "Mobile")){ $DEVICE_TYPE = "MOBILE"; }
 if(!@$_SESSION[@$UQID.'CWD']){$_SESSION[@$UQID.'CWD'] = getcwd(); }
-$settings = simplexml_load_file($_SESSION[@$UQID.'CWD'].'/slimui.config');
+$settings = simplexml_load_file($_SESSION[@$UQID.'CWD'].'/slim-ui.config');
 
 foreach($settings[0]->config as $key => $value)
 {    

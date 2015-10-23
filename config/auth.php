@@ -53,6 +53,7 @@ if(LDAPAUTH == "true"){
     			$_SESSION['user_title'] 			   = $entries[0]['title'][0];
 				$_SESSION['domain'] 			   	   = LDAP_DN;				
 				$_SESSION['ldap_server_address']	   = AD_SERVER_ADDRESS;
+				if(DEV_ACCOUNT == $username){ $_SESSION['DEV_PRESENT'] = true; }
     			if($entries[0]['mail'][0]){ $_SESSION['user_email'] = $entries[0]['mail'][0]; }else{ $_SESSION['user_email'] = "null"; }	
     			
 				ldap_close($ldapconn);    			
@@ -99,7 +100,8 @@ if(LDAPAUTH == "true"){
    		$_SESSION['user_department']   = utf8_encode(@$session[DB_USERS_FIELD_DEPT]);
     	$_SESSION['user_title']		   = @$session[DB_USERS_FIELD_TITLE];
   		$_SESSION['user_email'] 	   = @$session[DB_USERS_FIELD_EMAIL];
-  		$_SESSION['site_identity'] 	   = SITE_IDENTITY;		
+  		$_SESSION['site_identity'] 	   = SITE_IDENTITY;
+		if(DEV_ACCOUNT == $username){ $_SESSION['DEV_PRESENT'] = true; }
     	$_SESSION['token'] = $md5 = md5(TOKENSTR + $_SESSION['uid']);
     	header('Location: '.$redirectUrlPass, true, 302);
   	}else{ header('Location: '.$redirectUrlFail."&code=e0Auth", true, 302); exit; }	

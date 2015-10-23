@@ -2,19 +2,20 @@
 #MAIN_MENU .INPUT_MENU { color: white; }
 #WIDGET_MENU ._WIDGET_BUTTON { border-radius:100%; text-align:center; background-position-y:50%; margin-bottom: 25px; }
 #WIDGET_MENU ._WIDGET_BUTTON label { font-weight:600; top:85px; margin-left:0px; }
-._BODY { background-color:#555; }
+._MENU .MENU_LIST { box-shadow: rgba(0, 0, 0, 0.30) 5px 5px 10px -5px; }
+._BODY { background-color:#ec078d; }
 ._INPUT_BUTTON { background-color: #DDD; color: #555; font-weight:600; border-radius:3px; }
 ._INPUT_BUTTON:hover { background-color:#3B4045; color: #fff; }
 ._INPUT_BUTTON:active { background-color:#3B4045; color: #fff; }
 ._BKGSTYLE1 { background-color:#444 !important; color: white !important; }
 ._WIDGET_BUTTON { background-color:#212121; }
 ._WIDGET_BUTTON:active { opacity:0.8; }
-.MSG_WINDOW { background-color:#333; }
+.MSG_WINDOW { background-color:#ec078d; }
 .USER_PROFILE a { color:rgba(255, 255, 255, 0.5); }
 .MENU-WIDGET ._INPUT_BUTTON { color:#555; }
 .TDFIRST { border-bottom-left-radius:10px; border-top-left-radius:10px; }
 .TDLAST { border-bottom-right-radius:10px; border-top-right-radius:10px; }
-.WIDGET_CONTAINER { background-color: rgba(60, 60, 60, 0.94) !important; }
+.WIDGET_CONTAINER { background-color: rgba(175, 23, 74, 0.9) !important; border-bottom-color:#B9003F !important; }
 .SELECTED { background-color: #474747 !important; color:white; }
 .MISSED { border: 2px #DF7065 solid !important; }
 

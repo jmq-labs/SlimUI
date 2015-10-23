@@ -18,7 +18,22 @@ hr { min-width:165px; }
 .CODE { padding:10px; background-color: rgba(158, 18, 252, 0.05); color: rgb(0, 87, 79); }
 .E404 { font-weight: normal; font-style: normal; text-decoration: none; font-size: 36pt; color:#bbb; float:left; margin-right:20px; margin-top: 27px; }
 .P_CONTENT { background-color: rgb(233, 233, 233); padding: 16px; color: rgb(65, 65, 65); font-size: 100%; border-bottom-right-radius: 40px; border-top-right-radius: 40px; }
-.MGRID_CONTAINER { overflow-x: scroll; width: 235px; position: relative; }
+.MGRID_CONTAINER { overflow-x: scroll; width: 235px; }
+
+.MULTISELECT_CONTENT .MGRID_CONTAINER { width:auto; }
+.MULTISELECT:hover div { border-color:#585676; }
+.MULTISELECT:hover select { border-color:#585676; }
+.MULTISELECT select { width:200px;  border-bottom:none; }
+.MULTISELECT ._COMBO_BOX { margin:0px; }
+.MULTISELECT .mGrid td { white-space:normal; }
+.MULTISELECT ._INPUT_TEXT { border-bottom:none; margin:0px; height:29px; width:196px;}
+.MULTISELECT ._INPUT_TEXT input { width:175px; }
+.MULTISELECT ._CHECKBOX { display:table-cell; padding:3px; }
+.MULTISELECT_CONTENT { height: 94px; overflow-y: auto; margin-top:-4px; border:2px solid #ccc; width:196px; border-top: 1px solid #ccc; }
+.MULTISELECT table { border:none; width:auto; }
+.MULTISELECT table td:nth-child(2) { width:158px; }
+.MULTISELECT table td { border:none; padding:5px; }
+.MULTISELECT input[type="submit"] { width: 200px; margin-left: 0px; margin-top: 2px; }
 .WELCOME_LABEL { color: #12A3FF; font-size: 25px; float: left; padding: 0px 0px 15px 10px; width: 100%; text-align: left; }
 
 .mGrid { width:100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #ABABAB; border-collapse:collapse;}  
