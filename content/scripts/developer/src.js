@@ -1,4 +1,4 @@
-var WHid = 1; var activeUsr = ""; var CurrentFrame = 0; var _safeMode; var _key; var _confirmCallback = false; var cookie_data = "";
+var WHid = 1; var activeUsr = ""; var CurrentFrame = 0; var _safeMode; var _key; var _confirmCallback = false; var cookie_data = ""; var $load_app_menus;
 var loginFrame = "<iframe id='MAIN0' class='MAIN MAIN_DIV' pid='0' onload='ShowDOM(this)' src='config/system/master.php?uqid="+UQID+"&page=login.php&auth=true' ></iframe>";
 
 $(function(){
@@ -14,7 +14,7 @@ $(function(){
 	}
 	if(window.navigator.standalone) {    
     	$('body').css("padding-top","20px");
-	}
+	}   
 	
 	/************************* AJAX CACHE SETUP *************************/
 	
@@ -102,6 +102,23 @@ function setSession(name,token){
 				getCookieOptions : function(){ if (json[1]){ return json[1] }else{ return false }},
 			};
         })();
+
+        function CheckUpdates(){
+        	if($(api_session.getUserInfo())[0]['dev_user']){
+            	$.ajax({
+                	url: UPDATE_SERVER + '/manifest.json',
+            		async: false,
+            		jsonpCallback: 'jsonCallback',
+                	contentType: "application/json",
+                	dataType: "jsonp",
+            		success: function(json){
+            			if(VERSION < json.version){
+                    		NewNotif(false,LANG_SOFT_UPDATE_NEWUPD,"update/_update.php&newver=" + json.version + "&package=" + json.package + "&build=" + json.build);
+            			}
+            		}
+                });
+        	}
+        }
 		
 		activeUsr = name; displayName = activeUsr;
 		if(FILTER_BY){ _key = $(api_session.getUserInfo())[0][FILTER_BY]; }
@@ -122,7 +139,7 @@ function setSession(name,token){
     	$(".USER_PROFILE").show("fade",150,function(){ 
     		$("#WM_LOGO_DROPMENU").click(function(){ $("#WIDGET_MENU").toggle("blind",150); });
     		$("#WM_LOGO").click(function(){ MainMenu(); });
-    		MainMenu(); 
+			MainMenu(); CheckUpdates();
     	});
     
     	$("#SESSION_OFF").click(function () {
@@ -145,8 +162,8 @@ function setSession(name,token){
 		
 		for(i=0; i<$(api_session.getCookieOptions()).length; i++){
 		   cookie_data += $(api_session.getUserInfo())[0][$(api_session.getCookieOptions())[i][0]]+";";		   
-		}		
-		
+		}
+				
 		setCookie("slimtoken",cookie_data.slice(0,-1),1);
 		parent.eLog("Login event","Navegador: "+browserName+" Ver. "+majorVersion);	
 		$.get('http://ipinfo.io', function(data) { parent.eLog("Client Ip address", data.ip); }, "jsonp");
@@ -209,8 +226,8 @@ function ShowDOM(e,safeMode){
 	}
 	if($(e).attr("appmenu") && $("#MENU_CONTAINER").is(":empty")){ 
 		ClearMenu();
-		$("#MENU_CONTAINER").load($(e).attr("appmenu"),function(){			
-			$.ajax({
+		$.get($(e).attr("appmenu"), function(menu){					
+			$load_app_menus = $.ajax({
                  type: "GET",
                  url: WWWROOT+$(e).attr("folder").substr(3)+"appid.xml",
                  dataType: "xml",
@@ -218,61 +235,83 @@ function ShowDOM(e,safeMode){
                  success: function(xml){
 					var count = $("display_menu_filters", xml).children().length;
 					var obj = $("display_menu_filters", xml).children();										
+					$("#MENU_CONTAINER").append(menu);
 					for(i=0; i < count; i++){						
-						
 						var keys = obj[i].childNodes[0].data.split(",");
-						if(keys.indexOf(_key)==-1){
-							$("#"+obj.get(i).tagName).remove();
-						}else{
-							$("#"+obj.get(i).tagName).show();
+						if(keys.indexOf(_key)==-1 && _key){
+							$("#"+obj.get(i).tagName).remove();							
 						}
-					}						                    	
+					}										                    	
      			}
-            });			
+            });					
 		}); 
 	}	
 	$(e).show("fade",150);		
 	$(e).css("z-index",1);	
 }
 
-function NewDOM(e,i,safeMode){
-	var _url = $(e).attr("url")+"&uqid="+UQID;
-	if(!safeMode){ if(_safeMode){ safeMode = true; } if($(e).attr("safemode")){ safeMode = true; } }
-	if(safeMode == true && $(e).attr("isasp")){ _url = $(e).attr("url").substr("36").replace("&asp=true",""); }	
-	if(e.tagName!="LABEL"){    	
-    	if(i){			    		
-			var NewFrame = $("<iframe/>", {                    
-               id:		   "MAIN" + i,
-			   uqid:	   UQID,
-			   Class:	   "MAIN MAIN_DIV",
-			   pid:		   i,
-			   appname:	   $(e).attr("appname"),
-			   src:		   _url,
-			   onload_src: $(e).attr("onload_src"),
-			   isasp:	   $(e).attr("isasp"),
-			   folder:	   $(e).attr("folder"),
-			   safemode:   safeMode,
-			   appmenu:	   $(e).attr("appmenu"),
-               style:	   'display:none',
-               load:	   function(){ ShowDOM(this,safeMode); }
-            });		
-    		$("#MAIN_CONTAINER").append(NewFrame);    		
-			HistoryWidget(i,$(e).attr("title"),$(e).attr("icon"),$(e).attr("color"),$(e).attr("appmenu"));
-    		$(".HISTORY_WIDGET").hide();
-    	}	
-    	ClearMenu();
-	}else{ $(e).parent().trigger("click"); }
+function NewDOM(e,i,safeMode,m,url){
+	if(e){
+    	var _url = $(e).attr("url")+"&uqid="+UQID;
+    	if(!safeMode){ if(_safeMode){ safeMode = true; } if($(e).attr("safemode")){ safeMode = true; } }
+    	if(safeMode == true && $(e).attr("isasp")){ _url = $(e).attr("url").substr("36").replace("&asp=true",""); }
+    	if(e.tagName!="LABEL"){    	
+        	if(i){			    		
+    			var NewFrame = $("<iframe/>", {                    
+                   id:		   "MAIN" + i,
+    			   uqid:	   UQID,
+    			   Class:	   "MAIN MAIN_DIV",
+    			   pid:		   i,
+    			   appname:	   $(e).attr("appname"),
+    			   src:		   _url,
+    			   onload_src: $(e).attr("onload_src"),
+    			   isasp:	   $(e).attr("isasp"),
+    			   folder:	   $(e).attr("folder"),
+    			   safemode:   safeMode,
+    			   appmenu:	   $(e).attr("appmenu"),
+                   style:	   'display:none',
+                   load:	   function(){ ShowDOM(this,safeMode); }
+                });		
+        		$("#MAIN_CONTAINER").append(NewFrame);    		
+    			HistoryWidget(i,$(e).attr("title"),$(e).attr("icon"),$(e).attr("color"),m);
+        		$(".HISTORY_WIDGET").hide();
+        	}	
+        	ClearMenu();
+    	}else{ $(e).parent().trigger("click"); }
+	}else{
+		  if(m){
+    		  if(i){var url = url + "&uqid="+UQID;			    		
+        			var NewFrame = $("<iframe/>", {                    
+                       id:		   "MAIN" + i,
+        			   uqid:	   UQID,
+        			   Class:	   "MAIN MAIN_DIV",
+        			   pid:		   i,
+        			   appname:	   "notification",
+        			   src:		   url,       			           			   
+                       style:	   'display:none'
+                    });		
+            		$("#MAIN_CONTAINER").append(NewFrame);    		
+        			HistoryWidget(i,false,false,false,m);
+            		$(".HISTORY_WIDGET").hide();
+            	}	
+            	ClearMenu();
+		  }
+	}
 }
 
-function MainMenu(){			
+function MainMenu(){
+	if ($load_app_menus != null){ 
+        $load_app_menus.abort();
+        $load_app_menus = null;
+    }			
 	$(".MAIN").hide("fade",150,function(){
 			$(".HISTORY_WIDGET").each(function(){
 				if($(this).hasClass("NEW")){				
 					var id = $(this).attr("pid");
-					$(this).show().animate({ display: "inline-block", opacity: 1, marginLeft: "+=25" }, 200);					
+					$(this).show().animate({ opacity: 1, marginLeft: "+=25" }, 200);					
 					$(this).children(".HWIDGET_REMOVE").click(function(e){ 
 						e.stopPropagation();
-						$(this).parent(".HISTORY_WIDGET").animate({ display: "block", opacity: 0, marginLeft: "-=200" }, 200,function(){																				 
+						$(this).parent(".HISTORY_WIDGET").animate({ opacity: 0, marginLeft: "-=200" }, 200,function(){																				 
                 			$(".MAIN").each(function(){ if($(this).attr("pid") == id &&  $(this).attr("id") != "MAIN"){ $(this).remove(); } });             			
 							$(this).remove();	
 						}); 
@@ -283,25 +322,27 @@ function MainMenu(){
        					$(".HISTORY_WIDGET").hide();
 						$(".MAIN").hide();								
 						$("#MAIN"+id).show("fade",150);
-						if($("#MAIN"+id).attr("appmenu")){  $("#MENU_CONTAINER").load($("#MAIN"+id).attr("appmenu"),function(){
-							$.ajax({
-                               type: "GET",
-                               url: WWWROOT+$("#MAIN"+id).attr("folder").substr(3)+"appid.xml",
-                               dataType: "xml",
-                               success: function(xml){
-              						var count = $("display_menu_filters", xml).children().length;
-              						var obj = $("display_menu_filters", xml).children();					
-              						for(i=0; i < count; i++){
-                						var keys = obj[i].childNodes[0].data.split(",");
-                						if(keys.indexOf(_key)==-1){
-                							$("#"+obj.get(i).tagName).remove();
-                						}else{
-                							$("#"+obj.get(i).tagName).show();
-                						}
-              						}						                    	
-                   				}
-                          	}); 
-						});}
+						if($("#MAIN"+id).attr("appmenu")){					
+    						$.get($("#MAIN"+id).attr("appmenu"), function(menu){	
+                    			$load_app_menus = $.ajax({
+                                     type: "GET",
+                                     url: WWWROOT+$("#MAIN"+id).attr("folder").substr(3)+"appid.xml",
+                                     dataType: "xml",
+                    				 cache: false,
+                                     success: function(xml){
+                    					var count = $("display_menu_filters", xml).children().length;
+                    					var obj = $("display_menu_filters", xml).children();										
+                    					$("#MENU_CONTAINER").append(menu);
+                    					for(i=0; i < count; i++){						
+                    						var keys = obj[i].childNodes[0].data.split(",");
+                    						if(keys.indexOf(_key)==-1 && _key){
+                    							$("#"+obj.get(i).tagName).remove();							
+                    						}
+                    					}										                    	
+                         			}
+                                });					
+                    		});						
+						}
 						parent.eLog("Interface handler", "Open widget : " + $(this).attr("title"));																									 
 					});
 					$(this).mouseenter(function(){                		
@@ -320,10 +361,17 @@ function MainMenu(){
 	ClearMenu();
 }
 
-function HistoryWidget(id,title,icon,color){
-	var appcount = ""; <!-- $(".HISTORY_WIDGET label:contains('"+title+"')").length +1; -->
-	$("#HISTORY_WIDGETS").append("<div id='HW_"+id+"' pid='" + id + "' class='WIDGET_BUTTON HISTORY_WIDGET NEW' title='" + title + "' icon='" + icon + "' color='" + color + "' ><img src='content/img/clock.png' /><label class='HWIDGET_PID'>" + appcount + "</label><div class='HWIDGET_REMOVE _VOID'><img src='content/img/widget-close.png' /></div></div>");
+function HistoryWidget(id,title,icon,color,text){
+	if(!text){
+		$("#HISTORY_WIDGETS").append("<div id='HW_"+id+"' pid='" + id + "' class='WIDGET_BUTTON HISTORY_WIDGET NEW' title='" + title + "' icon='" + icon + "' color='" + color + "' ><img src='content/img/clock.png' /><div class='HWIDGET_REMOVE _VOID'><img src='content/img/widget-close.png' /></div></div>");
+	}else{		
+		$("#HISTORY_WIDGETS").append("<div id='HW_"+id+"' pid='" + id + "' class='WIDGET_BUTTON HISTORY_WIDGET NEW NOTIFICATION_WIDGET' title='' ><img src='content/img/clock.png' /><div class='NOTIF_TXT'><label>" + text + "</label></div><div class='HWIDGET_REMOVE _VOID'><img src='content/img/widget-close.png' /></div></div>");
+	}
 	$(".WIDGET_BUTTON").SlimButton("Big");		
+}
+
+function NewNotif(e,m,u){
+    	NewDOM(e,WHid++,false,m,"config/system/master.php?page=" + u);
 }
 
 <!------------------------ Cookies ------------------------>

@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-  	<?php require("config/config.php"); require("config/language/".LANG.".php"); ?>	
+  	<?php require("config/config.php"); require("config/language/".LANG.".php"); ?>
+	<?php $wwwroot = parse_url(WWWROOT); if($_SERVER['HTTP_HOST'] != $wwwroot['host']){ header('Location: '.WWWROOT); exit(); } ?>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
 	<meta name="apple-mobile-web-app-capable" content="yes" />

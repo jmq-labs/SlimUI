@@ -20,7 +20,7 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
         <div class="_FRAME" title="">	
              <div id="_DIVLOGINFRM" style="float: right;width: 399px;">
                 <div style="text-align:center;">
-                <?php if(LOGIN_TOP_IMAGE){ ?><img src="../../<?php print IMG_DIR.LOGIN_TOP_IMAGE; ?>" style="max-height:110px;"><?php }else{ ?>
+                <?php if(LOGIN_TOP_IMAGE){ ?><img src="../../<?php print IMG_DIR.LOGIN_TOP_IMAGE; ?>" style="max-height:120px;"><?php }else{ ?>
 					<label class="WELCOME_LABEL"><?php print LANG_LOGIN_WELCOME; ?></label><?php } ?>				
                 </div>
 				<br />

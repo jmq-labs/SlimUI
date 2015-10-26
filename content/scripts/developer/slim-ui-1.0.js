@@ -136,9 +136,15 @@ $.fn.SlimButton = function(o){
   $(this).each(function(){  
       if(o=="Big"){
      	 if(!$(this).hasClass("_WIDGET_BUTTON")){
-         	$(this).css("background-image","url('"+$(this).attr('icon')+"')");
-         	$(this).append("<br /><label>"+$(this).attr("title")+"</label>");
-         	$(this).css("background-color",$(this).attr("color"));
+         	if($(this).attr('icon')){
+				$(this).css("background-image","url('"+$(this).attr('icon')+"')");
+         	}
+			if($(this).attr("title")){
+				$(this).append("<br /><label>"+$(this).attr("title")+"</label>");
+			}
+			if($(this).attr("color")){
+				$(this).css("background-color",$(this).attr("color"));
+			}
          	$(this).addClass("_WIDGET_BUTTON");
          	$(this).removeClass("WIDGET_BUTTON");
 			$(this).click(function(){		
