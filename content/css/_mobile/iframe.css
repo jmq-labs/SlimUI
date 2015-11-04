@@ -11,7 +11,7 @@ hr { min-width:165px; }
 #_DIVLOGINFRM { float:none !important; width:inherit !important; }
 #_DIVLOGINFRM > div > p > img { width:230px !important; }
 
-.BODY_CONTAINER { width:320px !important; display:inline-table; }
+.BODY_CONTAINER { width:320px !important; display:inline-table; padding-bottom: 20px; }
 ._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
 .UI_CONTENT_TEXT { padding:0px 10px 0px; text-align:justify; }
 .INPUT_LABEL { width:145px; display:table-cell; margin-left:10px; }
