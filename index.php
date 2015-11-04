@@ -41,7 +41,7 @@
 	   
 	<script type="text/javascript" src="content/scripts/jquery/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="content/scripts/jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="content/scripts/slim-ui-1.0.min.js"></script>
+    <script type="text/javascript" src="content/scripts/slim-ui.min.js"></script>
 	<script type="text/javascript" src="content/scripts/browserversion.js"></script>
     <script type="text/javascript" src="content/scripts/src.min.js"></script>
 

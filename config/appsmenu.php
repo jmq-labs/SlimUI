@@ -19,16 +19,16 @@ $it = new RecursiveDirectoryIterator($directory);
 						  if(ALLOW_FILTERS == "true"){
     						  if(FILTER_TYPE == "include"){
     							  if(find($_SESSION[FILTER_BY], $display_filters["wb_".$xml->app[0]->appname])){
-        							  echo "<div id='WB_".$xml->app[0]->appname."' appname='".$xml->app[0]->appname."' folder='".$appdir."' isasp='".$xml->app[0]->asp."' class='WIDGET_BUTTON' icon='".$icon."' title='".$xml->app[0]->title."' url='config/system/master.php?page=../".$appdir.$xml->app[0]->default."&asp=".$xml->app[0]->asp."' color='".$xml->app[0]->color."' safemode='".$xml->app[0]->safemode."' appmenu='".$menu."' onload_src='".$xml->app[0]->onload_src."' style='".$xml->app[0]->style."' ></div>";
+        							  echo "<div id='WB_".$xml->app[0]->appname."' appname='".$xml->app[0]->appname."' folder='".$appdir."' isasp='".$xml->app[0]->asp."' class='WIDGET_BUTTON' icon='".$icon."' title='".$xml->app[0]->title."' url='config/system/master.php?page=../".$appdir.$xml->app[0]->default."&asp=".$xml->app[0]->asp."' color='".$xml->app[0]->color."' safemode='".$xml->app[0]->safemode."' appmenu='".$menu."' onload_src='".$xml->app[0]->onload_src."' style='".$xml->app[0]->style."' push='".$xml->app[0]->push_server."' ></div>";
         						  }
 							  }
 							  if(FILTER_TYPE == "exclude"){
     							  if(!find($_SESSION[FILTER_BY], $display_filters["wb_".$xml->app[0]->appname])){
-        							  echo "<div id='WB_".$xml->app[0]->appname."' appname='".$xml->app[0]->appname."' folder='".$appdir."' isasp='".$xml->app[0]->asp."' class='WIDGET_BUTTON' icon='".$icon."' title='".$xml->app[0]->title."' url='config/system/master.php?page=../".$appdir.$xml->app[0]->default."&asp=".$xml->app[0]->asp."' color='".$xml->app[0]->color."' safemode='".$xml->app[0]->safemode."' appmenu='".$menu."' onload_src='".$xml->app[0]->onload_src."' style='".$xml->app[0]->style."' ></div>";
+        							  echo "<div id='WB_".$xml->app[0]->appname."' appname='".$xml->app[0]->appname."' folder='".$appdir."' isasp='".$xml->app[0]->asp."' class='WIDGET_BUTTON' icon='".$icon."' title='".$xml->app[0]->title."' url='config/system/master.php?page=../".$appdir.$xml->app[0]->default."&asp=".$xml->app[0]->asp."' color='".$xml->app[0]->color."' safemode='".$xml->app[0]->safemode."' appmenu='".$menu."' onload_src='".$xml->app[0]->onload_src."' style='".$xml->app[0]->style."' push='".$xml->app[0]->push_server."' ></div>";
         						  }
 							  }
 						  }else{
-						  	  echo "<div id='WB_".$xml->app[0]->appname."' appname='".$xml->app[0]->appname."' folder='".$appdir."' isasp='".$xml->app[0]->asp."' class='WIDGET_BUTTON' icon='".$icon."' title='".$xml->app[0]->title."' url='config/system/master.php?page=../".$appdir.$xml->app[0]->default."&asp=".$xml->app[0]->asp."' color='".$xml->app[0]->color."' safemode='".$xml->app[0]->safemode."' appmenu='".$menu."' onload_src='".$xml->app[0]->onload_src."' style='".$xml->app[0]->style."' ></div>";
+						  	  echo "<div id='WB_".$xml->app[0]->appname."' appname='".$xml->app[0]->appname."' folder='".$appdir."' isasp='".$xml->app[0]->asp."' class='WIDGET_BUTTON' icon='".$icon."' title='".$xml->app[0]->title."' url='config/system/master.php?page=../".$appdir.$xml->app[0]->default."&asp=".$xml->app[0]->asp."' color='".$xml->app[0]->color."' safemode='".$xml->app[0]->safemode."' appmenu='".$menu."' onload_src='".$xml->app[0]->onload_src."' style='".$xml->app[0]->style."' push='".$xml->app[0]->push_server."' ></div>";
 						  }
 					  }			 
   				  }				  
