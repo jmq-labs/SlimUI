@@ -11,9 +11,9 @@ label { -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none
 ._ABOUT { font-weight: normal; font-style: normal; text-decoration: none; font-size: 11pt; }
 
 #PROGRESS { position:absolute; width:100%; height:25px; background-position: center; background-size:105px; background-repeat: no-repeat; display:none; background-image:url("../../img/progress.gif"); }
-#MAIN_MENU { font-size:88%; padding:15px; margin-left:-25px; }
+#MAIN_MENU { padding:25px; margin-left:-25px; font-size:95%; }
 #MAIN_MENU .INPUT_MENU { background-color:transparent; padding-top:5px; }
-#MAIN_MENU .INPUT_MENU ._INPUT_BUTTON { padding-top: 3.4px; padding-bottom: 3.5px; }
+#MAIN_MENU .INPUT_MENU ._INPUT_BUTTON { padding-top: 3.4px; padding-bottom: 3.5px; font-weight:normal; }
 #MAIN_MENU .INPUT_MENU:hover { color:rgb(181, 174, 206); }
 #MAIN_MENU #WM_LOGO_DROPMENU { display:none; }
 #MAIN_MENU .SEPARATOR { display:none; margin-left:5px; }

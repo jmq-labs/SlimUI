@@ -17,6 +17,7 @@ a:active {text-decoration: none}
 ._MENU .MENU_LIST ._INPUT_BUTTON { padding-left:30px; min-width:100px; height:inherit; display:list-item; list-style-type:none; margin:0px; list-style:'none'; background-color:white; color:black; text-align:left; }
 ._MENU .MENU_LIST ._INPUT_BUTTON:hover { background-color:#EAEAEA; border-bottom: 2px solid transparent; }
 ._MENU .MENU_LIST hr { margin:0px; }
+._MENU .MENU_LIST label, h1, h2, h3, h4, h5 { color:#000; margin:7px; text-overflow: ellipsis; width: 90%; overflow: hidden; }
 ._MENU .MENU_LIST_TITLE { position: absolute; height:18px; background-color: white; color: black; top: -40px; padding: 10px 15px 10px 15px; border: 2px solid #444; left: -2px; border-bottom: none; font-weight: bold; overflow: hidden; max-width: 115px; text-overflow: ellipsis;  white-space: nowrap; }
 
 ._CONTEXT_MENU { display:inline-block; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
@@ -50,7 +51,7 @@ a:active {text-decoration: none}
 
 .BLOCK_SCREEN { z-index:1; background-color:rgba(0, 0, 0, 0.5); position:absolute; top:0px; left:0px; width:100%; height:100%; display:table; }
 .MSG_WINDOW_CONTAINER { position:absolute; width:100%; top:150px; }
-.MSG_WINDOW { font-size:95%; width:100%; padding-top: 20px; padding-bottom: 20px; color:#FFFFFF; border:2px solid; border-color:rgb(129, 129, 129); border-left:none; border-right:none; }
+.MSG_WINDOW { font-size:95%; width:100%; padding-top: 20px; padding-bottom: 20px; color:#FFFFFF; border:2px solid; border-color:rgb(129, 129, 129); border-left:none; border-right:none; display:none; }
 
 .SLIMWIZ { font-size:90%; border-bottom-left-radius:10px; color:black; border-top: 11px solid transparent; border-left: 24px solid white; text-align:left; position:absolute; max-width:300px; background-color:transparent; display:none; z-index:1; }
 .SLIMWIZ .WIZ_CONTENT { border-bottom-left-radius:10px; border-bottom-right-radius:10px; border-top-right-radius:10px; background-color:white; padding:25px; margin-left:-24px; border-bottom:2px solid #ccc; border-right:2px solid #ccc; }
@@ -106,6 +107,7 @@ a:active {text-decoration: none}
 .METAEDITABLE:hover { color:#3D76BC; }
 .MISSED { -webkit-user-select: none; -ms-user-select: none; outline: 0; }
 .STRETCHPADDING { padding:5px; }
+.BLUR { -webkit-filter: blur(5px); -moz-filter: blur(5px); -o-filter: blur(5px); -ms-filter: blur(5px); filter: blur(5px); }
 
 /** Firefox **/
 
