@@ -1,5 +1,8 @@
 <?php error_reporting(0); if(@$_SESSION['keepsession']){ header('Location: master.php?uqid='.$UQID.'&page=token.php'); } ?>
 <script>
+$(function(){ 
+	<?php if(!$_GET['code'] && @$DEVICE_TYPE != "MOBILE"){ ?> $("#username").focus(); <?php } ?> 
+});
 var LANG_LOGIN_ERRCODEAUTH0 = "<?php print LANG_LOGIN_ERRCODEAUTH0; ?>";
 var LANG_LOGIN_ERRCODEAUTH1 = "<?php print LANG_LOGIN_ERRCODEAUTH1; ?>";
 var LANG_LOGIN_ERRCODECONN0 = "<?php print LANG_LOGIN_ERRCODECONN0; ?>";
@@ -50,7 +53,7 @@ var LANG_TOKEN_E1 = "<?php print LANG_TOKEN_E1; ?>";
        <div id="_DIVIMG1" style="width:300px; float:left; background-repeat:no-repeat;  background-image:url('../../<?php print IMG_DIR.LOGIN_LEFT_IMAGE; ?>');float: left;">
 		 <div style="width:100%; height:250px;"></div>		
 		     <div class="_BKGSTYLE1" style="width:100%; padding-top:10px; border-bottom-left-radius:10px; border-bottom-right-radius:10px; ">                  
-				  <div class="_FRAME _BKGSTYLE1" style="margin-top: 10px;" title="">
+				  <div class="_FRAME _BKGSTYLE1" style="margin-top: 10px; border:none;" title="">
                       <label class="CONTENT_TITLE"><?php echo LANG_LOGIN_ACCT1; ?></label><?php echo LANG_LOGIN_ACCT2; ?>
 	    	          <p>
                       <input type="button" ID="REQUESTACC" style="float:right;" class="_INPUT_BUTTON" onclick="parent.go('<?php echo MORE_INFO_LINK; ?>')" value="<?php echo LANG_LOGIN_ACCT3; ?>" />

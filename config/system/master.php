@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_fonts/opensans.css" />	
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/themes/<?php echo THEME; ?>/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/jquery-ui-1.10.0.custom.min.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_mobile/slim-ui-1.0.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_mobile/slim-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_mobile/iframe.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/plugins/timepicker/jquery-ui-timepicker.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/plugins/mask/qunit-1.11.0.css" />	
@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/_fonts/opensans.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/themes/<?php echo THEME; ?>/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/jquery-ui-1.10.0.custom.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/slim-ui-1.0.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/slim-ui.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/css/iframe.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/plugins/timepicker/jquery-ui-timepicker.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo WWWROOT; ?>content/plugins/mask/qunit-1.11.0.css" />
@@ -31,10 +31,10 @@
     <link rel="stylesheet" type="text/css" href="../../content/css/jquery-ui-1.10.0.custom.min.css" />	
     <?php if(isset($DEVICE_TYPE) AND $DEVICE_TYPE=="MOBILE" AND MOBILE_ENABLED=="true"){ ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-	<link rel="stylesheet" type="text/css" href="../../content/css/_mobile/slim-ui-1.0.css" />
+	<link rel="stylesheet" type="text/css" href="../../content/css/_mobile/slim-ui.css" />
 	<link rel="stylesheet" type="text/css" href="../../content/css/_mobile/iframe.css" />
 	<?php }else{ ?>
-	<link rel="stylesheet" type="text/css" href="../../content/css/slim-ui-1.0.css" />
+	<link rel="stylesheet" type="text/css" href="../../content/css/slim-ui.css" />
 	<link rel="stylesheet" type="text/css" href="../../content/css/iframe.css" />
 	<?php } ?>
 	
@@ -49,7 +49,7 @@
 	
     <script type="text/javascript" src="../../content/scripts/jquery/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="../../content/scripts/jquery/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../../content/scripts/slim-ui-1.0.min.js"></script>
+    <script type="text/javascript" src="../../content/scripts/slim-ui.min.js"></script>
 	<script type="text/javascript" src="../../content/scripts/slim-ui-api.js" ></script>
 	<script type="text/javascript" src="../../content/scripts/iframe-min.js" ></script>
 	
