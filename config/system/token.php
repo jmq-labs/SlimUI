@@ -1,7 +1,7 @@
 <?php 
-if(isset($_SESSION['token'])){ 
-	if($_SESSION['token'] != md5(TOKENSTR + $_SESSION['uid'])){
-		unset($_SESSION['token']);
+if(isset($_SESSION[$UQID.'token'])){ 
+	if($_SESSION[$UQID.'token'] != md5(TOKENSTR + $_SESSION[$UQID.'uid'])){
+		unset($_SESSION[$UQID.'token']);
 		header('Location: master.php?page=login.php&code=e0Token', true, 302);
 		exit;
 	}
@@ -13,7 +13,7 @@ if(isset($_SESSION['token'])){
 
 ?>
 <script>
-parent.setSession("<?php print $_SESSION['user_displayname']; ?>","<?php print $_SESSION['token']; ?>"); 
+parent.setSession("<?php print $_SESSION[$UQID.'user_displayname']; ?>","<?php print $_SESSION[$UQID.'token']; ?>"); 
 </script>
 <div class="CONTENT">
     <div class="BODY_CONTAINER">	    

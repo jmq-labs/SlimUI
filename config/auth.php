@@ -45,19 +45,20 @@ if(LDAPAUTH == "true"){
     			$result = ldap_search($ldapconn, $dn, $filter,$attributes);
     			$entries = ldap_get_entries($ldapconn, $result);
     			
-    			$_SESSION['uid'] 					   = $entries[0]['samaccountname'][0];
-				$_SESSION['username'] 				   = $entries[0]['samaccountname'][0];
-				$_SESSION['ldappass'] 				   = $userpass;
-    			$_SESSION['user_displayname'] 		   = $entries[0]['displayname'][0];
-    			$_SESSION['user_department'] 		   = $entries[0]['department'][0];
-    			$_SESSION['user_title'] 			   = $entries[0]['title'][0];
-				$_SESSION['domain'] 			   	   = LDAP_DN;				
-				$_SESSION['ldap_server_address']	   = AD_SERVER_ADDRESS;
-				if(DEV_ACCOUNT == $username){ $_SESSION['DEV_PRESENT'] = true; }
-    			if($entries[0]['mail'][0]){ $_SESSION['user_email'] = $entries[0]['mail'][0]; }else{ $_SESSION['user_email'] = "null"; }	
+    			$_SESSION['uqid'] 					   	   = $UQID;
+				$_SESSION[$UQID.'uid'] 					   = $entries[0]['samaccountname'][0];
+				$_SESSION[$UQID.'username'] 			   = $entries[0]['samaccountname'][0];
+  				$_SESSION[$UQID.'ldappass'] 			   = $userpass;
+    			$_SESSION[$UQID.'user_displayname'] 	   = $entries[0]['displayname'][0];
+    			$_SESSION[$UQID.'user_department'] 		   = $entries[0]['department'][0];
+    			$_SESSION[$UQID.'user_title'] 			   = $entries[0]['title'][0];
+				$_SESSION[$UQID.'domain'] 			   	   = LDAP_DN;				
+				$_SESSION[$UQID.'ldap_server_address']	   = AD_SERVER_ADDRESS;
+				if(DEV_ACCOUNT == $username){ $_SESSION[$UQID.'DEV_PRESENT'] = true; }
+    			if($entries[0]['mail'][0]){ $_SESSION[$UQID.'user_email'] = $entries[0]['mail'][0]; }else{ $_SESSION[$UQID.'user_email'] = "null"; }	
     			
 				ldap_close($ldapconn);    			
-				$_SESSION['token'] = $md5 = md5(TOKENSTR + $_SESSION['uid']);
+				$_SESSION[$UQID.'token'] = $md5 = md5(TOKENSTR + $_SESSION[$UQID.'uid']);
     			header('Location: '.$redirectUrlPass, true, 302);
     						
       		}else{ 	header('Location: '.$redirectUrlFail."&code=e0Auth", true, 302); }
@@ -93,16 +94,17 @@ if(LDAPAUTH == "true"){
   		if($keepsession){
     		$_SESSION['keepsession'] = true;				
     	}   
-  		$_SESSION['uid'] 			   = @$session[DB_USERS_FIELD_UID];
-		$_SESSION['username']		   = @$session[$DBUSRN];
-		$_SESSION['ldappass'] 		   = $userpass;
-    	$_SESSION['user_displayname']  = utf8_encode(@$session[DB_USERS_FIELD_DISPLAY_NAME]);
-   		$_SESSION['user_department']   = utf8_encode(@$session[DB_USERS_FIELD_DEPT]);
-    	$_SESSION['user_title']		   = @$session[DB_USERS_FIELD_TITLE];
-  		$_SESSION['user_email'] 	   = @$session[DB_USERS_FIELD_EMAIL];
-  		$_SESSION['site_identity'] 	   = SITE_IDENTITY;
-		if(DEV_ACCOUNT == $username){ $_SESSION['DEV_PRESENT'] = true; }
-    	$_SESSION['token'] = $md5 = md5(TOKENSTR + $_SESSION['uid']);
+  		$_SESSION['uqid'] 					   	= $UQID;
+		$_SESSION[$UQID.'uid'] 			   		= @$session[DB_USERS_FIELD_UID];
+		$_SESSION[$UQID.'username']		   		= @$session[$DBUSRN];
+		$_SESSION[$UQID.'ldappass'] 		   	= $userpass;
+    	$_SESSION[$UQID.'user_displayname']  	= utf8_encode(@$session[DB_USERS_FIELD_DISPLAY_NAME]);
+   		$_SESSION[$UQID.'user_department']   	= utf8_encode(@$session[DB_USERS_FIELD_DEPT]);
+    	$_SESSION[$UQID.'user_title']		   	= @$session[DB_USERS_FIELD_TITLE];
+  		$_SESSION[$UQID.'user_email'] 	   		= @$session[DB_USERS_FIELD_EMAIL];
+  		$_SESSION[$UQID.'site_identity'] 	   	= SITE_IDENTITY;
+		if(DEV_ACCOUNT == $username){ $_SESSION[$UQID.'DEV_PRESENT'] = true; }
+    	$_SESSION[$UQID.'token'] = $md5 = md5(TOKENSTR + $_SESSION[$UQID.'uid']);
     	header('Location: '.$redirectUrlPass, true, 302);
   	}else{ header('Location: '.$redirectUrlFail."&code=e0Auth", true, 302); exit; }	
     }else{ header('Location: '.$redirectUrlFail."&code=e1Auth", true, 302); exit; }
