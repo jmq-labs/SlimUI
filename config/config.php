@@ -3,8 +3,14 @@ $cookie_data = array(); $display_filters = array(); $UA = $_SERVER['HTTP_USER_AG
 if(isset($_GET['uqid'])){ $UQID = @$_GET['uqid']; }
 if(isset($_POST['uqid'])){ $UQID = @$_POST['uqid']; }
 if(stristr($UA, "Mobile")){ $DEVICE_TYPE = "MOBILE"; }
-if(!@$_SESSION[@$UQID.'CWD']){$_SESSION[@$UQID.'CWD'] = getcwd(); }
-$settings = simplexml_load_file($_SESSION[@$UQID.'CWD'].'/slim-ui.config');
+if(!isset($_SESSION[$UQID.'CWD'])){ $_SESSION[$UQID.'CWD'] = getcwd(); }
+
+if(!$settings = simplexml_load_file($_SESSION[@$UQID.'CWD'].'/slim-ui.config')){
+	?> 
+	   <script> parent.SlimAlert("<code>Error: Could not locate configuration file!</code><br /> Reload the website?",function(){ parent.window.location.reload(); }); </script>
+	<?php
+	die();
+}
 
 foreach($settings[0]->config as $key => $value)
 {    

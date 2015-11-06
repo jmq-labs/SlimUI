@@ -3,7 +3,7 @@ session_start();
 require("config.php");
 header('Content-type: application/json; charset=utf-8');
 
-if(@$_SESSION['username']){
+if(@$_SESSION[$UQID.'username']){
   /*************************************************************************************************************/
   if(isset($_GET['cookiedata'])){
   	$data = array();	
@@ -17,13 +17,13 @@ if(@$_SESSION['username']){
   /*************************************************************************************************************/
   if(isset($_GET['userinfo'])){
 	$data['userinfo'] = array();
-	$data['userinfo']['user_id'] 		  = @$_SESSION['uid'];	
-	$data['userinfo']['user_name'] 		  = @$_SESSION['username'];	
-	$data['userinfo']['user_displayname'] = @$_SESSION['user_displayname'];
-	$data['userinfo']['user_department']  = @$_SESSION['user_department'];
-	$data['userinfo']['user_email']		  = @$_SESSION['user_email'];
-	$data['userinfo']['user_title']		  = @$_SESSION['user_title'];
-	if($_SESSION['DEV_PRESENT']){ $data['userinfo']['dev_user'] = true; }else{ $data['userinfo']['dev_user'] = false; }	
+	$data['userinfo']['user_id'] 		  = @$_SESSION[$UQID.'uid'];	
+	$data['userinfo']['user_name'] 		  = @$_SESSION[$UQID.'username'];	
+	$data['userinfo']['user_displayname'] = @$_SESSION[$UQID.'user_displayname'];
+	$data['userinfo']['user_department']  = @$_SESSION[$UQID.'user_department'];
+	$data['userinfo']['user_email']		  = @$_SESSION[$UQID.'user_email'];
+	$data['userinfo']['user_title']		  = @$_SESSION[$UQID.'user_title'];
+	if($_SESSION[$UQID.'DEV_PRESENT']){ $data['userinfo']['dev_user'] = true; }else{ $data['userinfo']['dev_user'] = false; }	
 	$out = array_values($data);
 	echo json_encode($out);
   }
@@ -33,8 +33,8 @@ if(@$_SESSION['username']){
     ldap_set_option(@$ds, LDAP_OPT_REFERRALS, 0);
     
     $ldap_server = AD_SERVER_ADDRESS;
-    $auth_user = $_SESSION['username']."@".LDAP_DN;
-    $auth_pass = $_SESSION['ldappass'];
+    $auth_user = $_SESSION[$UQID.'username']."@".LDAP_DN;
+    $auth_pass = $_SESSION[$UQID.'ldappass'];
     $dc = explode('.', LDAP_DN); $base_dn = "dc=".$dc[0].",dc=".$dc[1];
     $filter = "(&(givenName=".@$_GET['q']."*)(objectClass=user)(objectCategory=person)(cn=*))";
     
@@ -68,11 +68,11 @@ if(@$_SESSION['username']){
   /*************************************************************************************************************/  
   if(isset($_POST['usertasks'])){
   	$con=odbc_connect('planner','sa','22197926');
-	$q = "SELECT row_number() over (ORDER BY (SELECT 0)) as item, * FROM ( SELECT tickets.id, fecha, nombre, departamento, asunto, descripcion, correo, prioridad, estado, uid, project_id, evento, allday, (select tickets_meta_data.value from tickets_meta_data join meta_names on tickets_meta_data.meta_id = meta_names.id where tickets_meta_data.ticket_id = tickets.id and meta_id = 8) as fecha_inicio, (select tickets_meta_data.value from tickets_meta_data join meta_names on tickets_meta_data.meta_id = meta_names.id where tickets_meta_data.ticket_id = tickets.id and meta_id = 9) as fecha_vence FROM TICKETS left join project_meta_data on tickets.id = project_meta_data.ticket_id ) as tasks WHERE ( uid = '".$_SESSION['uid']."' OR correo LIKE '%".$_SESSION['user_email']."%')";
+	$q = "SELECT row_number() over (ORDER BY (SELECT 0)) as item, * FROM ( SELECT tickets.id, fecha, nombre, departamento, asunto, descripcion, correo, prioridad, estado, uid, project_id, evento, allday, (select tickets_meta_data.value from tickets_meta_data join meta_names on tickets_meta_data.meta_id = meta_names.id where tickets_meta_data.ticket_id = tickets.id and meta_id = 8) as fecha_inicio, (select tickets_meta_data.value from tickets_meta_data join meta_names on tickets_meta_data.meta_id = meta_names.id where tickets_meta_data.ticket_id = tickets.id and meta_id = 9) as fecha_vence FROM TICKETS left join project_meta_data on tickets.id = project_meta_data.ticket_id ) as tasks WHERE ( uid = '".$_SESSION[$UQID.'uid']."' OR correo LIKE '%".$_SESSION[$UQID.'user_email']."%')";
   	$e = odbc_exec($con, $q);
 	$array = array();    	
 	while($task = odbc_fetch_array($e)){		
-		if($task['uid'] != $_SESSION['uid'] && !$task['evento']){ $eventColor = "#888888"; }else{ $eventColor = "#3A87AD"; }
+		if($task['uid'] != $_SESSION[$UQID.'uid'] && !$task['evento']){ $eventColor = "#888888"; }else{ $eventColor = "#3A87AD"; }
 		if($task['evento']){ $eventColor = "#4F9E48"; }		
 		if($task['allday'] == 0){ 
 			$allDay = false; 
@@ -118,28 +118,28 @@ if(@$_SESSION['username']){
   	$con=odbc_connect('planner','sa','22197926');
 	switch($_POST['col']){
 		case "taskname":
-			 $q = "UPDATE tasks SET nombre = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET nombre = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "taskdepartment":
-			 $q = "UPDATE tasks SET departamento = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET departamento = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "title":
-			 $q = "UPDATE tasks SET asunto = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET asunto = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "taskdepartment":
-			 $q = "UPDATE tasks SET departamento = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET departamento = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "description":
-			 $q = "UPDATE tasks SET descripcion = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET descripcion = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "taskinvites":
-			 $q = "UPDATE tasks SET correo = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET correo = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "taskpriority":
-			 $q = "UPDATE tasks SET prioridad = ".$_POST['val']." WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET prioridad = ".$_POST['val']." WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "taskstat":
-			 $q = "UPDATE tasks SET estado = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET estado = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "start":
 			 $q = "UPDATE tickets_meta_data SET value = '".$_POST['val']."' WHERE ticket_id = ".$_POST['id']." AND meta_id = 8";
@@ -148,10 +148,10 @@ if(@$_SESSION['username']){
 			 $q = "UPDATE tickets_meta_data SET value = '".$_POST['val']."' WHERE ticket_id = ".$_POST['id']." AND meta_id = 9";
 			 break;
 		case "isevent":
-			 $q = "UPDATE tasks SET evento = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET evento = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 		case "allday":
-			 $q = "UPDATE tasks SET allday = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION['uid']."'";
+			 $q = "UPDATE tasks SET allday = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 	}
   	if( !odbc_exec($con, $q) ){ echo "Parece que algo salio mal! Error: ".mysql_error(); }

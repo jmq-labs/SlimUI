@@ -1,4 +1,4 @@
-<?PHP session_start(); error_reporting(0); if(isset($_GET['kill_session'])){ session_destroy(); session_start(); } $UQID = uniqid(); ?>
+<?PHP session_start(); error_reporting(0); if(isset($_GET['kill_session'])){ session_destroy(); session_start(); } if(@$_SESSION['keepsession']){ $UQID = $_SESSION['uqid']; }else{ $UQID = uniqid(); } ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
