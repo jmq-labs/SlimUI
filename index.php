@@ -21,6 +21,7 @@
     <script>
 	var VERSION = "<?php print VERSION; ?>";
 	var BUILD = "<?php print BUILD; ?>";
+	var SITE_IDENTITY = "<?php print SITE_IDENTITY; ?>";
 	var UPDATE_SERVER = "<?php print UPDATE_SERVER; ?>";
 	var UQID = "<?php print $UQID; ?>";
   	var IMG_DIR = "<?php print IMG_DIR; ?>";
@@ -28,6 +29,7 @@
 	var WWWROOT = "<?php print WWWROOT; ?>";
 	var ELOGS = "<?php print ELOGS; ?>";
 	var FILTER_BY = "<?php print FILTER_BY; ?>";
+	var FILTER_BY2 = "<?php print FILTER_BY2; ?>";
 	var DEVICE_TYPE = "<?php print @$DEVICE_TYPE; ?>";
 	var AJAX_CACHE = "<?php print AJAX_CACHE; ?>";
   	var LANG_MAIN_CLOSESESSION = "<?php print LANG_MAIN_CLOSESESSION; ?>";
@@ -37,6 +39,7 @@
 	var LANG_LOGIN_BROWSER_COMP = "<?php print LANG_LOGIN_BROWSER_COMP; ?>";
 	var LANG_SAFEMODE_ALERT = "<?php print LANG_SAFEMODE_ALERT; ?>";
 	var LANG_SOFT_UPDATE_NEWUPD = "<?php print LANG_SOFT_UPDATE_NEWUPD; ?>";
+	var LANG_MAIN_SESSIONEXPIRED = "<?php print LANG_MAIN_SESSIONEXPIRED; ?>";
 	</script>
 	   
 	<script type="text/javascript" src="content/scripts/jquery/jquery-1.11.2.min.js"></script>
@@ -44,6 +47,7 @@
     <script type="text/javascript" src="content/scripts/slim-ui.min.js"></script>
 	<script type="text/javascript" src="content/scripts/browserversion.js"></script>
     <script type="text/javascript" src="content/scripts/src.min.js"></script>
+	<script type="text/javascript" src="content/plugins/idle/idle.js"></script>
 
 </head>
 <body class="_BODY">

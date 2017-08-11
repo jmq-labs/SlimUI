@@ -1,9 +1,17 @@
 <?php
+ 
 session_start();
+if(isset($_GET['session_stat'])){
+	if(!isset($_SESSION['uqid'])){		
+		exit;
+	}
+}
+
+/*************************************************************************************************************/
 require("config.php");
 header('Content-type: application/json; charset=utf-8');
 
-if(@$_SESSION[$UQID.'username']){
+if(@$_SESSION[$UQID.'uid']){
   /*************************************************************************************************************/
   if(isset($_GET['cookiedata'])){
   	$data = array();	
@@ -154,7 +162,7 @@ if(@$_SESSION[$UQID.'username']){
 			 $q = "UPDATE tasks SET allday = '".$_POST['val']."' WHERE id = ".$_POST['id']." AND uid = '".$_SESSION[$UQID.'uid']."'";
 			 break;
 	}
-  	if( !odbc_exec($con, $q) ){ echo "Parece que algo salio mal! Error: ".mysql_error(); }
+  	if( !odbc_exec($con, $q) ){ echo "Error: ".mysql_error(); }
   }
 }
 ?>

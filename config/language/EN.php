@@ -32,6 +32,7 @@ define('LANG_MAIN_CLOSESESSION',					'Log Out');
 define('LANG_MAIN_CLOSESESSIONMSG',					'Do you want to exit now?');
 define('LANG_MAIN_CLOSESESSIONMSGBTY',				'Ok');
 define('LANG_MAIN_CLOSESESSIONMSGBTN',				'Cancel');
+define('LANG_MAIN_SESSIONEXPIRED',					'Your session has expired! Would you like to reload the website? Any changes may be lost.');
 define('LANG_DB_CONNERR',							'Connection error: ');
 define('LANG_BT_APPLY',								'Apply');
 define('LANG_BT_SAVE',								'Save');

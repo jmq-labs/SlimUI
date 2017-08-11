@@ -54,6 +54,7 @@ if(LDAPAUTH == "true"){
     			$_SESSION[$UQID.'user_title'] 			   = $entries[0]['title'][0];
 				$_SESSION[$UQID.'domain'] 			   	   = LDAP_DN;				
 				$_SESSION[$UQID.'ldap_server_address']	   = AD_SERVER_ADDRESS;
+				$_SESSION[$UQID.'site_identity'] 	   	   = SITE_IDENTITY;
 				if(DEV_ACCOUNT == $username){ $_SESSION[$UQID.'DEV_PRESENT'] = true; }
     			if($entries[0]['mail'][0]){ $_SESSION[$UQID.'user_email'] = $entries[0]['mail'][0]; }else{ $_SESSION[$UQID.'user_email'] = "null"; }	
     			
