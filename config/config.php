@@ -7,7 +7,7 @@ if(!isset($_SESSION[$UQID.'CWD'])){ $_SESSION[$UQID.'CWD'] = getcwd(); }
 
 if(!$settings = simplexml_load_file($_SESSION[@$UQID.'CWD'].'/slim-ui.config')){
 	?> 
-	   <script> parent.SlimAlert("<code>Error: Could not locate configuration file!</code><br /> Reload the website?",function(){ parent.window.location.reload(); }); </script>
+	   <script> parent.SlimAlert("<code>Error: Could not locate configuration file! Session may have expired.</code><br /> Reload the website?",function(){ parent.window.location.reload(); }); </script>
 	<?php
 	die();
 }
